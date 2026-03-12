@@ -146,8 +146,9 @@ npx naver-commerce-api-docs-cli sync
 
 ## agent init
 
-`init`은 현재 프로젝트에 LLM agent용 설정 파일을 설치합니다. 기존 `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`가 이미 있으면 전체를 덮어쓰지 않고 `naver-commerce-api-docs-cli:init:*` managed block만 append/update 합니다. 이전 `naver-commerce-api-docs:init:*` block도 있으면 새 prefix로 교체합니다.
+`init`은 현재 프로젝트에 LLM agent용 설정 파일을 설치합니다. 모든 타깃에서 `AGENTS.md` managed block을 공통으로 설치하고, target별 전용 파일도 함께 설치합니다. 기존 `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`가 이미 있으면 전체를 덮어쓰지 않고 `naver-commerce-api-docs-cli:init:*` managed block만 append/update 합니다. 이전 `naver-commerce-api-docs:init:*` block도 있으면 새 prefix로 교체합니다.
 설치 템플릿 본문은 코드에 직접 넣지 않고 루트 `SKILLS.md`에서 읽어옵니다.
+기본 출력도 `start -> file -> done -> guide` 순서의 JSONL을 내보내므로, agent가 어떤 파일이 설치됐는지 별도 코드 분석 없이 바로 알 수 있습니다.
 
 ```bash
 npx naver-commerce-api-docs-cli init
@@ -158,9 +159,9 @@ npx naver-commerce-api-docs-cli init --target codex --root ../my-agent-project
 설치 대상별 생성 경로는 아래와 같습니다.
 
 - `codex`: `.agents/skills/naver-commerce-api-docs-cli/SKILL.md`, `AGENTS.md`
-- `claude`: `.claude/skills/naver-commerce-api-docs-cli/SKILL.md`, `CLAUDE.md`
+- `claude`: `.claude/skills/naver-commerce-api-docs-cli/SKILL.md`, `CLAUDE.md`, `AGENTS.md`
 - `cursor`: `.cursor/rules/naver-commerce-api-docs-cli.mdc`, `AGENTS.md`
-- `gemini`: `.gemini/skills/naver-commerce-api-docs-cli/SKILL.md`, `GEMINI.md`
+- `gemini`: `.gemini/skills/naver-commerce-api-docs-cli/SKILL.md`, `GEMINI.md`, `AGENTS.md`
 - `antigravity`: `.agents/skills/naver-commerce-api-docs-cli/SKILL.md`, `AGENTS.md`
 
 `antigravity`는 공식 스킬 경로 문서를 확인하지 못해 `.agents/skills` + `AGENTS.md` 호환 모드로 설치합니다.
@@ -169,6 +170,34 @@ npx naver-commerce-api-docs-cli init --target codex --root ../my-agent-project
 
 - 기본 조회는 `project docs -> synced cache docs -> bundled docs` 순서로 `ask`, `api`
 - `sync`는 upstream 개발문서 변경 시에만 요청하고, 기본적으로 managed cache를 갱신
+- agent는 `node_modules/naver-commerce-api-docs-cli/` 내부 파일을 직접 근거로 읽지 말고, 항상 `npx naver-commerce-api-docs-cli ...` subprocess 출력(JSONL)을 우선 근거로 사용
+
+## demo
+
+`demo/`는 이제 추적 대상이 아니라, 반복 검증 때 매번 새로 생성되는 scratch workspace입니다. 현재 세션에서 하던 `demo 초기화 -> agent init -> Codex 자식 프로세스 실행 -> 로그 수집 -> 종료 후 재시작` 전체는 [scripts/demo-codex-loop.ps1](./scripts/demo-codex-loop.ps1)로 자동화합니다.
+
+```bash
+pwsh -File ./scripts/demo-codex-loop.ps1 -Action run
+npm run demo:status
+npm run demo:stop
+```
+
+기본 동작은 다음과 같습니다.
+
+- `demo/`를 매 회차 완전히 비움
+- [scripts/demo-template/package.json](./scripts/demo-template/package.json), [scripts/demo-template/CODEX_TASK.md](./scripts/demo-template/CODEX_TASK.md)로 scratch project 재생성
+- 현재 repo를 `demo/node_modules/naver-commerce-api-docs-cli`로 링크해서, 별도 `npm install` 없이 `npx naver-commerce-api-docs-cli ...`가 동작하게 준비
+- `init`과 `validate`를 먼저 실행
+- Codex 자식 프로세스를 백그라운드로 띄워 `CODEX_TASK.md`를 끝까지 수행
+- 이벤트 로그와 산출물을 `.cache/codex-demo-loop/runs/<timestamp-run>/`에 아카이브
+- 기본값으로 무한 반복. `-MaxRuns 1`이면 1회만 실행
+
+유용한 옵션:
+
+- `-MaxRuns 0`: 무한 반복, 기본값
+- `-RunTimeoutMinutes 10`: 한 회차 최대 실행 시간
+- `-RestartDelaySeconds 3`: 다음 회차 시작 전 대기
+- `-SkipValidate`: 매 회차의 `validate` 생략
 
 ## npm 배포
 

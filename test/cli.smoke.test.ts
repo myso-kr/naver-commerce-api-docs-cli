@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -135,6 +136,47 @@ describe("CLI smoke", () => {
     expect(guide?.audience).toBe("agent");
   });
 
+  it("prioritizes the product creation endpoint for product creation questions", async () => {
+    const result = await runCli([
+      "ask",
+      "--format",
+      "compact",
+      "Which API endpoint creates a new product in Naver Commerce?",
+      "Include the exact POST path, request body media type, and auth requirements.",
+    ]);
+    expect(result.status).toBe(0);
+
+    const events = parseJsonLines(result.stdout);
+    const matches = events.filter((event) => event.event === "match");
+    const guide = events.find((event) => event.event === "guide");
+
+    expect(matches[0]?.file).toBe("api/v2/products.POST.md");
+    expect(matches[0]?.method).toBe("POST");
+    expect(matches[0]?.path).toBe("/v2/products");
+    expect(Array.isArray(guide?.next_steps)).toBe(true);
+    expect((guide?.next_steps as string[])[0]).toContain("api --path /v2/products --method POST --body");
+  });
+
+  it("runs correctly through a linked node_modules-style cli path", () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-linked-cli-");
+    const linkedRoot = path.join(tmpRoot, "pkg");
+    fs.symlinkSync(ROOT, linkedRoot, process.platform === "win32" ? "junction" : "dir");
+
+    const result = spawnSync(
+      process.execPath,
+      [path.join(linkedRoot, "dist", "cli.js"), "ask", "smartstore", "인증하려면", "어떻게", "해야해?"],
+      {
+        cwd: tmpRoot,
+        encoding: "utf-8",
+      },
+    );
+
+    expect(result.status).toBe(0);
+    const events = parseJsonLines(result.stdout);
+    expect(events.some((event) => event.event === "match")).toBe(true);
+    expect(events.some((event) => event.event === "guide")).toBe(true);
+  });
+
   it("emits rewritten token details for ask in verbose mode", async () => {
     const result = await runCli(["ask", "--verbose", "smartstore", "인증하려면", "어떻게", "해야해?"]);
     expect(result.status).toBe(0);
@@ -230,12 +272,19 @@ describe("CLI smoke", () => {
     expect(fs.existsSync(path.join(tmpRoot, "GEMINI.md"))).toBe(true);
 
     const firstEvents = parseJsonLines(first.stdout);
+    const fileEvents = firstEvents.filter((event) => event.event === "file");
+    expect(firstEvents.some((event) => event.event === "start")).toBe(true);
+    expect(fileEvents.length).toBeGreaterThan(0);
+    expect(fileEvents.some((event) => event.action === "created" || event.action === "appended")).toBe(true);
     expect(
       firstEvents.some(
         (event) => event.event === "target_inferred" && event.target === "antigravity",
       ),
     ).toBe(true);
     expect(firstEvents.some((event) => event.event === "guide")).toBe(true);
+    expect(codexSkill).toMatch(/do not start by reading repository source code/i);
+    expect(codexSkill).toMatch(/do not inspect `node_modules\/naver-commerce-api-docs-cli\/`/i);
+    expect(codexSkill).toMatch(/subprocess-only tool/i);
 
     const second = await runCli([
       "init",
@@ -250,6 +299,30 @@ describe("CLI smoke", () => {
     expect(
       updatedAgentsContent.match(/naver-commerce-api-docs-cli:init:agents:start/g)?.length ?? 0,
     ).toBe(1);
+  });
+
+  it("installs AGENTS.md even for a claude-only target", async () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-init-claude-");
+
+    const result = await runCli([
+      "init",
+      "--target",
+      "claude",
+      "--root",
+      tmpRoot,
+    ]);
+    expect(result.status).toBe(0);
+
+    const agentsPath = path.join(tmpRoot, "AGENTS.md");
+    const claudePath = path.join(tmpRoot, "CLAUDE.md");
+
+    expect(fs.existsSync(agentsPath)).toBe(true);
+    expect(fs.existsSync(claudePath)).toBe(true);
+
+    const agentsContent = fs.readFileSync(agentsPath, "utf-8");
+    expect(agentsContent).toMatch(/AGENTS\.md.*highest-priority local workflow rule/i);
+    expect(agentsContent).toMatch(/Do not use web search or external browsing/i);
+    expect(agentsContent).toMatch(/Do not inspect `node_modules\/naver-commerce-api-docs-cli\/` directly for evidence/i);
   });
 
   it("finds an exact API document match", async () => {
@@ -555,6 +628,54 @@ describe("CLI smoke", () => {
     expect(checkDone?.ok).toBe(true);
     expect(guides).toHaveLength(1);
     expect(guides[0]?.audience).toBe("agent");
+  });
+
+  it("does not classify a missing child exit code as a demo-loop failure", () => {
+    const loopScript = fs.readFileSync(path.join(ROOT, "scripts", "demo-codex-loop.ps1"), "utf-8");
+    expect(loopScript).toContain("if ($null -ne $ChildResult.ExitCode -and $ChildResult.ExitCode -ne 0)");
+  });
+
+  it("requires ask and exact api lookups before demo-loop file generation", () => {
+    const loopScript = fs.readFileSync(path.join(ROOT, "scripts", "demo-codex-loop.ps1"), "utf-8");
+    expect(loopScript).toContain('api --path /v1/oauth2/token --method POST --body');
+    expect(loopScript).toContain('api --path /v2/products --method POST --body');
+    expect(loopScript).toContain('api --path /v1/products/search --method POST --body');
+    expect(loopScript).toContain('GROUNDING_COMPLETE');
+    expect(loopScript).toContain('started writing files before the token api lookup completed');
+    expect(loopScript).toContain('started writing files before the product api lookup completed');
+    expect(loopScript).toContain('started writing files before the product search api lookup completed');
+    expect(loopScript).toContain('started writing files before emitting GROUNDING_COMPLETE');
+  });
+
+  it("checks internal-import violations against command events instead of raw skill text", () => {
+    const loopScript = fs.readFileSync(path.join(ROOT, "scripts", "demo-codex-loop.ps1"), "utf-8");
+    expect(loopScript).toContain('$commandExecutionTexts = New-Object System.Collections.Generic.List[string]');
+    expect(loopScript).toContain('$commandText = $commandExecutionTexts -join "`n"');
+    expect(loopScript).toContain("if ($commandText -match 'naver-commerce-api-docs-cli[\\\\/\\\\\\\\]+dist");
+  });
+
+  it("ships a deeper demo mission template for auth-create-search flows", () => {
+    const taskTemplate = fs.readFileSync(
+      path.join(ROOT, "scripts", "demo-template", "CODEX_TASK.md"),
+      "utf-8",
+    );
+    expect(taskTemplate).toContain("POST /v1/products/search");
+    expect(taskTemplate).toContain("GROUNDING_COMPLETE");
+    expect(taskTemplate).toContain("searchProducts({ token, criteria, fetchImpl })");
+    expect(taskTemplate).toContain("createAndVerifyProduct({ auth, productPayload, fetchImpl })");
+  });
+
+  it("uses non-isolated node tests for demo reproducibility in restricted environments", () => {
+    const demoPackageJson = fs.readFileSync(path.join(ROOT, "demo", "package.json"), "utf-8");
+    const templatePackageJson = fs.readFileSync(
+      path.join(ROOT, "scripts", "demo-template", "package.json"),
+      "utf-8",
+    );
+    const loopScript = fs.readFileSync(path.join(ROOT, "scripts", "demo-codex-loop.ps1"), "utf-8");
+
+    expect(demoPackageJson).toContain('--test-isolation=none');
+    expect(templatePackageJson).toContain('--test-isolation=none');
+    expect(loopScript).toContain('& node --test --test-isolation=none');
   });
 
   it("completes lint, review, and noise without crashing", async () => {

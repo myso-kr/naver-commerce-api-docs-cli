@@ -40,6 +40,20 @@ import { setOutputMode } from "./core/emit.js";
 
 const CLI_FILE = fileURLToPath(import.meta.url);
 
+function normalizeEntrypointPath(value: string): string {
+  const resolved = path.resolve(value);
+  try {
+    const realpath = fs.realpathSync(resolved);
+    return process.platform === "win32" ? realpath.toLowerCase() : realpath;
+  } catch {
+    return process.platform === "win32" ? resolved.toLowerCase() : resolved;
+  }
+}
+
+function isCurrentEntrypoint(argv1: string): boolean {
+  return normalizeEntrypointPath(argv1) === normalizeEntrypointPath(CLI_FILE);
+}
+
 function readVersion(): string {
   const __dirname = path.dirname(CLI_FILE);
   const packageJsonPath = path.resolve(__dirname, "..", "package.json");
@@ -410,7 +424,7 @@ export async function run(argv: string[] = process.argv): Promise<number> {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === CLI_FILE) {
+if (process.argv[1] && isCurrentEntrypoint(process.argv[1])) {
   run()
     .then((code) => {
       process.exitCode = code;

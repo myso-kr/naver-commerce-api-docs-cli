@@ -67,7 +67,7 @@ export function run(opts: InitOpts): number {
     files: [],
   };
 
-  verbose("start", {
+  info("start", {
     root,
     targets,
   });
@@ -106,14 +106,12 @@ export function run(opts: InitOpts): number {
     );
   }
 
-  if (targets.includes("codex") || targets.includes("cursor") || targets.includes("antigravity")) {
-    upsertSharedBlock(
-      state,
-      path.join(root, "AGENTS.md"),
-      "agents",
-      templates.agentsBlock,
-    );
-  }
+  upsertSharedBlock(
+    state,
+    path.join(root, "AGENTS.md"),
+    "agents",
+    templates.agentsBlock,
+  );
 
   if (targets.includes("claude")) {
     upsertSharedBlock(
@@ -252,7 +250,7 @@ function recordAction(state: InitState, filePath: string, action: FileAction): v
   else state.unchanged += 1;
 
   state.files.push(relativePath(state.root, filePath));
-  verbose("file", {
+  info("file", {
     file: relativePath(state.root, filePath),
     action,
   });

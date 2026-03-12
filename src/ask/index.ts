@@ -46,6 +46,8 @@ interface QueryPlan {
   guideIntent: boolean;
   apiIntent: boolean;
   authIntent: boolean;
+  productIntent: boolean;
+  createIntent: boolean;
 }
 
 interface SearchMatch {
@@ -178,7 +180,7 @@ export function run(questionInput: string | string[], opts: AskOpts): number {
   });
   emitGuide({
     use_for: "Use ranked match events as retrieval evidence and let the calling agent synthesize the final answer.",
-    next_steps: buildAskNextSteps(matches, includeBody, format),
+    next_steps: buildAskNextSteps(matches, plan, includeBody, format),
     caution: "ask is heuristic retrieval. If the ranking looks weak, fall back to exact api selectors or inspect more match bodies.",
     artifacts: matches.map((match) => match.doc.relFile),
   });
@@ -237,13 +239,15 @@ function buildMatchEvent(
 
 function buildAskNextSteps(
   matches: SearchMatch[],
+  plan: QueryPlan,
   includeBody: boolean,
   format: AskFormat,
 ): string[] {
   const steps: string[] = [];
-  const topApi = matches.find((match) => match.doc.method && match.doc.apiPath);
-  if (topApi?.doc.method && topApi.doc.apiPath) {
-    steps.push(`Run \`api --path ${topApi.doc.apiPath} --method ${topApi.doc.method} --body\` for exact endpoint grounding.`);
+  const exactLookups = selectFollowupApiMatches(matches, plan);
+  for (const match of exactLookups) {
+    if (!match.doc.method || !match.doc.apiPath) continue;
+    steps.push(`Run \`api --path ${match.doc.apiPath} --method ${match.doc.method} --body\` for exact endpoint grounding.`);
   }
   if (!includeBody) {
     steps.push("Rerun `ask --body` if the agent needs full markdown instead of excerpts.");
@@ -258,10 +262,42 @@ function buildAskNextSteps(
   return steps;
 }
 
+function selectFollowupApiMatches(matches: SearchMatch[], plan: QueryPlan): SearchMatch[] {
+  const apiMatches = matches.filter((match) => match.doc.method && match.doc.apiPath);
+  if (apiMatches.length === 0) return [];
+
+  const selected: SearchMatch[] = [];
+  const seen = new Set<string>();
+  const add = (match: SearchMatch | undefined) => {
+    if (!match) return;
+    const key = `${match.doc.method}:${match.doc.apiPath}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    selected.push(match);
+  };
+
+  if (plan.productIntent && plan.createIntent) {
+    add(apiMatches.find((match) =>
+      match.doc.method === "POST" && /^\/v\d+\/products(?:\/|$)/.test(match.doc.apiPath),
+    ));
+  }
+
+  if (plan.authIntent) {
+    add(apiMatches.find((match) =>
+      match.doc.method === "POST" && match.doc.apiPath === "/v1/oauth2/token",
+    ));
+  }
+
+  add(apiMatches[0]);
+  return selected;
+}
+
 function buildQueryPlan(question: string): QueryPlan {
   const normalized = normalizeSearchText(question);
   const tokens = dedupeTokens(tokenize(question).filter((token) => !STOPWORDS.has(token)));
   const expanded = new Set(tokens);
+  const productIntent = /(상품|product|products)/u.test(normalized);
+  const createIntent = /(등록|생성|create|creation|신규|new)/u.test(normalized);
 
   if (/(smart\s*store|smartstore|스마트\s*스토어|스마트스토어)/u.test(normalized)) {
     expanded.add("스마트스토어");
@@ -293,6 +329,22 @@ function buildQueryPlan(question: string): QueryPlan {
     expanded.add("엔드포인트");
   }
 
+  if (productIntent) {
+    expanded.add("상품");
+    expanded.add("product");
+    expanded.add("products");
+    expanded.add("/v2/products");
+    expanded.add("v2 products");
+  }
+
+  if (productIntent && createIntent) {
+    expanded.add("상품 등록");
+    expanded.add("신규 상품");
+    expanded.add("create product");
+    expanded.add("product creation");
+    expanded.add("originproduct");
+  }
+
   return {
     question,
     normalized,
@@ -301,6 +353,8 @@ function buildQueryPlan(question: string): QueryPlan {
     guideIntent: /(방법|가이드|어떻게|하려면|시작|설정)/u.test(normalized),
     apiIntent: /(api|endpoint|엔드포인트|path|경로|method|메서드|호출)/u.test(normalized),
     authIntent: /(인증|auth|oauth|oauth2|token|토큰|authorization|bearer|로그인)/u.test(normalized),
+    productIntent,
+    createIntent,
   };
 }
 
@@ -396,6 +450,23 @@ function scoreDoc(doc: SearchDoc, plan: QueryPlan): SearchMatch {
     if (/authorization:\s*bearer/i.test(doc.body)) score += 20;
     if (/oauth 2\.0/i.test(doc.body) || /token url:/i.test(doc.body)) score += 12;
   }
+  if (plan.productIntent) {
+    if (doc.type === "api-endpoint") score += 8;
+    if (doc.category === "상품") score += 18;
+    if (/^\/v\d+\/products(?:\/|$)/.test(doc.apiPath)) score += 26;
+    if (/(상품 등록|신규 상품|create product|product creation)/i.test(`${doc.title} ${doc.description}`)) {
+      score += 18;
+    }
+  }
+  if (plan.createIntent) {
+    if (doc.method === "POST") score += 8;
+    if (/(등록|생성|create|creation|new)/u.test(doc.normalized.title)) score += 14;
+  }
+  if (plan.productIntent && plan.createIntent && doc.method === "POST" && /^\/v\d+\/products(?:\/|$)/.test(doc.apiPath)) {
+    score += 36;
+  }
+  if (plan.productIntent && doc.apiPath === "/v1/oauth2/token") score -= 32;
+  if (plan.productIntent && doc.category === "인증") score -= 16;
   if (doc.type === "category-index") score -= 8;
   if (doc.type === "schema") score -= 4;
 
