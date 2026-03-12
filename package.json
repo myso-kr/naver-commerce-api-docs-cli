@@ -32,11 +32,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myso-kr/commerce-api.git"
+    "url": "git+https://github.com/myso-kr/naver-commerce-api-docs-cli.git"
   },
-  "homepage": "https://github.com/myso-kr/commerce-api#readme",
+  "homepage": "https://github.com/myso-kr/naver-commerce-api-docs-cli#readme",
   "bugs": {
-    "url": "https://github.com/myso-kr/commerce-api/issues"
+    "url": "https://github.com/myso-kr/naver-commerce-api-docs-cli/issues"
   },
   "packageManager": "npm@11.7.0",
   "scripts": {

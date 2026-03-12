@@ -215,4 +215,5 @@ git push origin v1.0.0
 - CLI 엔트리포인트: `src/cli.ts`
 - 배포 산출물: `dist/**`, `docs/**`
 - agent installer 템플릿: `SKILLS.md`
-- legacy Python 스크립트: `scripts/**`에 남아 있지만 npm 패키지에는 포함되지 않습니다.
+- 저장소 raw 원본: `raws/**`
+- 저장소 정규화 문서: `docs/api/**`, `docs/schema/**`, `docs/category/**`, `docs/guide/**`, `docs/llms*.txt`

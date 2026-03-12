@@ -19,10 +19,6 @@ pnpm-debug.log*
 playwright-report/
 test-results/
 
-# legacy python artifacts
-__pycache__/
-*.py[cod]
-
 # local tooling
 .claude/
 .vscode/

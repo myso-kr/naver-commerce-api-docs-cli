@@ -66,6 +66,34 @@ function makeTempDir(prefix: string) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
 }
 
+async function withTempManagedEnv<T>(root: string, run: () => Promise<T> | T): Promise<T> {
+  const prevLocalAppData = process.env.LOCALAPPDATA;
+  const prevXdgCacheHome = process.env.XDG_CACHE_HOME;
+  const prevHome = process.env.HOME;
+  const prevUserProfile = process.env.USERPROFILE;
+
+  process.env.LOCALAPPDATA = root;
+  process.env.XDG_CACHE_HOME = root;
+  process.env.HOME = root;
+  process.env.USERPROFILE = root;
+
+  try {
+    return await run();
+  } finally {
+    if (prevLocalAppData === undefined) delete process.env.LOCALAPPDATA;
+    else process.env.LOCALAPPDATA = prevLocalAppData;
+
+    if (prevXdgCacheHome === undefined) delete process.env.XDG_CACHE_HOME;
+    else process.env.XDG_CACHE_HOME = prevXdgCacheHome;
+
+    if (prevHome === undefined) delete process.env.HOME;
+    else process.env.HOME = prevHome;
+
+    if (prevUserProfile === undefined) delete process.env.USERPROFILE;
+    else process.env.USERPROFILE = prevUserProfile;
+  }
+}
+
 describe("CLI smoke", () => {
   it("exposes major commands in help", async () => {
     const result = await runCli(["--help"]);
@@ -291,11 +319,8 @@ describe("CLI smoke", () => {
 
   it("falls back to bundled docs when cwd/docs is missing", async () => {
     const tmpRoot = makeTempDir("naver-commerce-api-docs-bundled-");
-    const tmpLocalAppData = makeTempDir("naver-commerce-api-docs-empty-cache-");
-    const prevLocalAppData = process.env.LOCALAPPDATA;
-
-    try {
-      process.env.LOCALAPPDATA = tmpLocalAppData;
+    const tmpManagedRoot = makeTempDir("naver-commerce-api-docs-empty-cache-");
+    await withTempManagedEnv(tmpManagedRoot, async () => {
       const result = await runCli(
         ["api", "--path", "/v2/products", "--method", "POST"],
         { cwd: tmpRoot },
@@ -304,19 +329,13 @@ describe("CLI smoke", () => {
       expect(result.status).toBe(0);
       const events = parseJsonLines(result.stdout);
       expect(events.some((event) => event.event === "match")).toBe(true);
-    } finally {
-      if (prevLocalAppData === undefined) delete process.env.LOCALAPPDATA;
-      else process.env.LOCALAPPDATA = prevLocalAppData;
-    }
+    });
   });
 
   it("prefers managed synced cache docs over bundled docs when cwd/docs is missing", async () => {
     const tmpRoot = makeTempDir("naver-commerce-api-docs-managed-read-");
-    const tmpLocalAppData = makeTempDir("naver-commerce-api-docs-managed-cache-");
-    const prevLocalAppData = process.env.LOCALAPPDATA;
-
-    try {
-      process.env.LOCALAPPDATA = tmpLocalAppData;
+    const tmpManagedRoot = makeTempDir("naver-commerce-api-docs-managed-cache-");
+    await withTempManagedEnv(tmpManagedRoot, async () => {
       const managedDocsRoot = resolveManagedDocsRoot();
       const managedFile = path.join(managedDocsRoot, "api", "v2", "products.POST.md");
       fs.mkdirSync(path.dirname(managedFile), { recursive: true });
@@ -336,10 +355,7 @@ describe("CLI smoke", () => {
       const events = parseJsonLines(result.stdout);
       const match = events.find((event) => event.event === "match");
       expect(String(match?.body ?? "")).toContain("[managed-cache]");
-    } finally {
-      if (prevLocalAppData === undefined) delete process.env.LOCALAPPDATA;
-      else process.env.LOCALAPPDATA = prevLocalAppData;
-    }
+    });
   });
 
   it("ships bundled docs in the published package contract", () => {
@@ -352,15 +368,15 @@ describe("CLI smoke", () => {
     expect(packageJson.bin?.["naver-commerce-api-docs"]).toBeUndefined();
     expect(packageJson.bin?.ncad).toBe("./dist/cli.js");
     expect(fs.existsSync(path.join(ROOT, "docs", "api"))).toBe(true);
+    expect(fs.existsSync(path.join(ROOT, "docs", "assets"))).toBe(false);
+    expect(fs.existsSync(path.join(ROOT, "docs", "index.html"))).toBe(false);
+    expect(fs.existsSync(path.join(ROOT, "docs", "2.0.0-RC.js"))).toBe(false);
   });
 
   it("falls back to legacy managed cache docs when present", async () => {
     const tmpRoot = makeTempDir("naver-commerce-api-docs-legacy-managed-read-");
-    const tmpLocalAppData = makeTempDir("naver-commerce-api-docs-legacy-managed-cache-");
-    const prevLocalAppData = process.env.LOCALAPPDATA;
-
-    try {
-      process.env.LOCALAPPDATA = tmpLocalAppData;
+    const tmpManagedRoot = makeTempDir("naver-commerce-api-docs-legacy-managed-cache-");
+    await withTempManagedEnv(tmpManagedRoot, async () => {
       const [legacyManagedRoot] = resolveLegacyManagedStateRootsFor();
       const legacyFile = path.join(legacyManagedRoot, "docs", "api", "v2", "products.POST.md");
       fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
@@ -380,10 +396,7 @@ describe("CLI smoke", () => {
       const events = parseJsonLines(result.stdout);
       const match = events.find((event) => event.event === "match");
       expect(String(match?.body ?? "")).toContain("[legacy-managed-cache]");
-    } finally {
-      if (prevLocalAppData === undefined) delete process.env.LOCALAPPDATA;
-      else process.env.LOCALAPPDATA = prevLocalAppData;
-    }
+    });
   });
 
   it("generates fresh llms artifacts from a docs directory", async () => {
