@@ -194,7 +194,7 @@ npm publish --access public
 - `npm run test:cli`
 - `npm run build`
 - `npm publish --access public`
-- GitHub Release 생성
+- `gh release create`로 GitHub Release 생성 또는 재실행 시 asset 갱신
 - `npm pack`으로 만든 `*.tgz` tarball을 Release asset으로 업로드
 
 필수 준비:
