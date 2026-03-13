@@ -18,7 +18,7 @@ npm run build
 node dist/cli.js --help
 ```
 
-Playwright 기반 명령어(`sync`, `scrape`, `scrape-api`)를 사용할 때만 브라우저 설치가 필요합니다.
+Playwright 기반 명령어(`sync --latest`, `scrape --maintainer`, `scrape-api --maintainer`)를 사용할 때만 브라우저 설치가 필요합니다.
 
 ```bash
 npx playwright install chromium
@@ -26,7 +26,7 @@ npx playwright install chromium
 
 ## 명령어
 
-flat 명령은 유지하면서, agent가 쓰기 쉬운 그룹 명령과 최소 alias만 함께 제공합니다. 배포 패키지에는 정규화된 `docs/`가 동봉되므로, 일반적인 `npx` 사용자나 agent는 별도 scrape 없이 바로 조회를 시작하면 됩니다. 이후 `sync`가 필요해도 기본값은 현재 프로젝트가 아니라 CLI managed cache를 갱신합니다.
+flat 명령은 유지하면서, agent가 쓰기 쉬운 그룹 명령과 최소 alias만 함께 제공합니다. 배포 패키지에는 정규화된 `docs/`가 동봉되므로, 일반적인 `npx` 사용자나 agent는 별도 scrape 없이 바로 조회를 시작하면 됩니다. `sync`, `scrape`, `scrape-api`는 명시 플래그가 있어야만 실행됩니다.
 
 ```bash
 node dist/cli.js ask smartstore 인증하려면 어떻게 해야해
@@ -44,15 +44,15 @@ node dist/cli.js validate
 node dist/cli.js lint --fix --src raws/commerce-api/current --dst docs --summary
 node dist/cli.js review
 node dist/cli.js noise
-node dist/cli.js sync
-node dist/cli.js scrape
-node dist/cli.js scrape-api
-node dist/cli.js scrape-api --out raws/commerce-api/current --dst docs
-node dist/cli.js scrape-api --no-normalize
+node dist/cli.js sync --latest
+node dist/cli.js scrape --maintainer
+node dist/cli.js scrape-api --maintainer
+node dist/cli.js scrape-api --maintainer --out raws/commerce-api/current --dst docs
+node dist/cli.js scrape-api --maintainer --no-normalize
 node dist/cli.js docs api --path /v2/products --method POST
 node dist/cli.js docs ask --format compact smartstore 인증하려면 어떻게 해야해
 node dist/cli.js source normalize --src raws/commerce-api/current --dst docs
-node dist/cli.js source sync
+node dist/cli.js source sync --latest
 node dist/cli.js check all
 node dist/cli.js agent init
 node dist/cli.js review --verbose
@@ -70,7 +70,13 @@ node dist/cli.js transform --debug
 일반 사용 흐름은 아래 두 단계면 충분합니다.
 
 - 조회: `ask`, `api`
-- 최신 동기화가 정말 필요할 때만: `sync`
+- 최신 동기화가 정말 필요할 때만: `sync --latest`
+
+보수적 실행 가드는 아래와 같습니다.
+
+- `sync`는 `--latest` 없이는 실행되지 않습니다.
+- `scrape`, `scrape-api`는 `--maintainer` 없이는 실행되지 않습니다.
+- 무플래그 호출 시 네트워크 작업 대신 JSONL `guide`로 `ask -> api -> sync --latest` 순서를 안내합니다.
 
 `scrape`와 `scrape-api`는 기본적으로 raw 문서를 수집한 뒤 `docs/`에 정규화된 경로와 포맷으로 다시 적재합니다. 기존 정규화 산출물(`docs/api`, `docs/schema`, `docs/category`, `docs/guide`, `llms*.txt`)은 새 결과로 동기화되도록 먼저 정리합니다.
 
@@ -84,7 +90,7 @@ node dist/cli.js transform --debug
 
 ## npx 사용 방식
 
-배포 패키지는 `docs/`를 함께 포함하므로, 설치 직후 조회형 명령은 바로 사용할 수 있습니다.
+배포 패키지는 `docs/`를 함께 포함하므로, 설치 직후 조회형 명령은 바로 사용할 수 있습니다. 일반적인 agent workflow는 `ask -> api -> implementation`이며, 최신화나 raw crawl은 기본 경로가 아닙니다.
 
 ```bash
 npx naver-commerce-api-docs-cli --help
@@ -112,9 +118,10 @@ npx naver-commerce-api-docs-cli transform --debug
 - `ask`는 휴리스틱 검색기입니다. 최종 답변은 이 결과를 호출한 LLM이 스스로 결정해야 합니다. 애매하면 `api --path`, `api --query`, 매치 파일 본문 확인으로 보강해야 합니다.
 - `ask --format compact`를 쓰면 `tags`, `description`, `score`, `matched_terms`, `source`를 생략한 짧은 근거만 반환합니다. `--body`를 함께 주면 compact에서도 본문은 포함됩니다.
 - 배포 패키지는 정규화된 `docs/`를 함께 동봉합니다. 로컬 `./docs`가 없으면 번들 문서를 바로 사용하므로, 일반적인 조회에는 `sync`가 필요하지 않습니다.
-- 조회/검사 명령(`ask`, `api`, `review`, `noise`, `lint`): 현재 작업 디렉터리에 `./docs`가 있으면 우선 사용하고, 없으면 CLI managed cache의 synced `docs/`, 마지막으로 패키지 번들 `docs/`를 사용합니다.
+- 조회/검사 명령(`ask`, `api`, `review`, `noise`, `lint`): 현재 작업 디렉터리에서 위로 올라가며 가장 가까운 상위 프로젝트의 정규화된 `docs/`를 먼저 찾고, 없으면 CLI managed cache의 synced `docs/`, 마지막으로 패키지 번들 `docs/`를 사용합니다.
+- 단, 아무 `docs/`나 집지 않고 `api/schema/category/guide` 또는 `llms*.txt`가 있는 정규화 corpus만 읽기 대상으로 인정합니다.
 - 생성 명령(`llms`, `transform`, `lint --fix`, `scrape`, `scrape-api`): 현재 작업 디렉터리 기준 `./docs`, `./raws/...`를 기본 경로로 사용합니다.
-- `sync`: upstream 개발문서가 바뀌었을 때만 raw 수집, 정규화, validate를 한 번에 수행합니다. 기본 출력은 현재 프로젝트가 아니라 CLI managed cache이므로 일반 작업 디렉터리를 오염시키지 않습니다.
+- `sync --latest`: upstream 개발문서가 바뀌었을 때만 raw 수집, 정규화, validate를 한 번에 수행합니다. 기본 출력은 현재 프로젝트가 아니라 CLI managed cache이므로 일반 작업 디렉터리를 오염시키지 않습니다.
 
 managed cache 기본 경로는 OS별로 아래를 따릅니다.
 
@@ -140,10 +147,10 @@ npx naver-commerce-api-docs-cli docs api --path /v2/products --method POST
 npx --package naver-commerce-api-docs-cli ncad ask --format compact "smartstore 인증"
 ```
 
-upstream 문서가 실제로 바뀌어서 로컬 corpus를 갱신해야 할 때만 아래처럼 실행하면 됩니다. 기본적으로 CLI managed cache를 갱신하고, 이후 조회 명령은 프로젝트 로컬 `./docs`가 없을 때 그 cache를 자동으로 사용합니다.
+upstream 문서가 실제로 바뀌어서 로컬 corpus를 갱신해야 할 때만 아래처럼 실행하면 됩니다. 기본적으로 CLI managed cache를 갱신하고, 이후 조회 명령은 프로젝트 상위 경로에서 발견되는 정규화된 `docs/`가 없을 때 그 cache를 자동으로 사용합니다.
 
 ```bash
-npx naver-commerce-api-docs-cli sync
+npx naver-commerce-api-docs-cli sync --latest
 ```
 
 ## agent init
@@ -171,7 +178,7 @@ npx naver-commerce-api-docs-cli init --target codex --root ../my-agent-project
 설치되는 skill/rule 안내문도 동일한 정책을 따릅니다.
 
 - 기본 조회는 `project docs -> synced cache docs -> bundled docs` 순서로 `ask`, `api`
-- `sync`는 upstream 개발문서 변경 시에만 요청하고, 기본적으로 managed cache를 갱신
+- `sync --latest`는 upstream 개발문서 변경 시에만 요청하고, 기본적으로 managed cache를 갱신
 - agent는 `node_modules/naver-commerce-api-docs-cli/` 내부 파일을 직접 근거로 읽지 말고, 항상 `npx naver-commerce-api-docs-cli ...` subprocess 출력(JSONL)을 우선 근거로 사용
 
 ## demo
