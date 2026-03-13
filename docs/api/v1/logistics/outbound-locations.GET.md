@@ -10,8 +10,32 @@ category: 물류
 tags:
   - get
   - logistics
+keywords:
+  - "판매자 창고 정보 조회"
+  - "판매자 창고"
+  - "창고 정보"
+  - "정보 조회"
+  - "물류"
+  - "logistics"
+  - "delivery"
+  - "sku"
+  - "nfa"
+  - "배송"
+  - "택배"
+  - "get"
+  - "/v1/logistics/outbound-locations"
+  - "get /v1/logistics/outbound-locations"
+  - "v1"
+  - "logistic"
+  - "outbound-locations"
+  - "outbound-location"
+  - "v1 logistics outbound-locations"
+  - "logistics outbound-locations"
+  - "get-outbound-locations-nfa"
+  - "outbound"
+  - "locations"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-outbound-locations-nfa
 ---
 

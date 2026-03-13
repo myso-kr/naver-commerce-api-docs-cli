@@ -10,8 +10,39 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "사용자 정의 채널 api"
+  - "사용자 정의"
+  - "정의 채널"
+  - "채널 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/marketing/custom/simple"
+  - "get /v1/bizdata-stats/channels/{channelno}/marketing/custom/simple"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "marketing"
+  - "custom"
+  - "simple"
+  - "v1 bizdata-stats channels channelno marketing custom simple"
+  - "custom simple"
+  - "bizdata-stats channels channelno marketing custom simple"
+  - "custom-channel-simple-report-using-get-bizdata-stats"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/custom-channel-simple-report-using-get-bizdata-stats
 ---
 

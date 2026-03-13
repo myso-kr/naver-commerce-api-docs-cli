@@ -10,8 +10,41 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "교환 거부 철회"
+  - "교환 거부"
+  - "거부 철회"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/{productorderid}/claim/exchange/reject"
+  - "post /v1/pay-order/seller/product-orders/{productorderid}/claim/exchange/reject"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "productorderid"
+  - "claim"
+  - "exchange"
+  - "reject"
+  - "v1 pay-order seller product-orders productorderid claim exchange reject"
+  - "exchange reject"
+  - "pay-order seller product-orders productorderid claim exchange reject"
+  - "seller-reject-exchange-pay-order-seller"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-reject-exchange-pay-order-seller
 ---
 

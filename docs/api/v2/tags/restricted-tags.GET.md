@@ -10,8 +10,34 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 제한 태그 여부 조회"
+  - "v2 제한"
+  - "제한 태그"
+  - "태그 여부"
+  - "여부 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/tags/restricted-tags"
+  - "get /v2/tags/restricted-tags"
+  - "v2"
+  - "tags"
+  - "태그"
+  - "tag"
+  - "restricted-tags"
+  - "restricted-tag"
+  - "v2 tags restricted-tags"
+  - "tags restricted-tags"
+  - "is-restrict-tags-product"
+  - "is"
+  - "restrict"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/is-restrict-tags-product
 ---
 

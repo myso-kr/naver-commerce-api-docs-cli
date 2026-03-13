@@ -10,8 +10,36 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "상품 옵션 재고 변경"
+  - "상품 옵션"
+  - "옵션 재고"
+  - "재고 변경"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v1/products/origin-products/{originproductno}/option-stock"
+  - "put /v1/products/origin-products/{originproductno}/option-stock"
+  - "v1"
+  - "origin-products"
+  - "origin-product"
+  - "originproductno"
+  - "option-stock"
+  - "v1 products origin-products originproductno option-stock"
+  - "originproductno option-stock"
+  - "products origin-products originproductno option-stock"
+  - "update-options-product"
+  - "update"
+  - "options"
+  - "옵션"
+  - "option"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-options-product
 ---
 

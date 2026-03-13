@@ -10,8 +10,31 @@ category: 판매자정보
 tags:
   - post
   - seller
+keywords:
+  - "오늘출발 정보 설정"
+  - "오늘출발 정보"
+  - "정보 설정"
+  - "판매자정보"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "판매자"
+  - "셀러"
+  - "스마트스토어"
+  - "post"
+  - "/v1/seller/this-day-dispatch"
+  - "post /v1/seller/this-day-dispatch"
+  - "v1"
+  - "this-day-dispatch"
+  - "v1 seller this-day-dispatch"
+  - "seller this-day-dispatch"
+  - "modify-today-dispatch-sellers"
+  - "modify"
+  - "today"
+  - "dispatch"
+  - "sellers"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/modify-today-dispatch-sellers
 ---
 

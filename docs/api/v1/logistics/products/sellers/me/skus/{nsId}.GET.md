@@ -10,8 +10,46 @@ category: 물류
 tags:
   - get
   - logistics
+keywords:
+  - "sku 조회 api"
+  - "sku 조회"
+  - "조회 api"
+  - "물류"
+  - "logistics"
+  - "delivery"
+  - "sku"
+  - "nfa"
+  - "배송"
+  - "택배"
+  - "get"
+  - "/v1/logistics/products/sellers/me/skus/{nsid}"
+  - "get /v1/logistics/products/sellers/me/skus/{nsid}"
+  - "v1"
+  - "logistic"
+  - "products"
+  - "product"
+  - "상품"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "sellers"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "me"
+  - "skus"
+  - "nsid"
+  - "v1 logistics products sellers me skus nsid"
+  - "skus nsid"
+  - "logistics products sellers me skus nsid"
+  - "get-ns-detail-nfa"
+  - "ns"
+  - "detail"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-ns-detail-nfa
 ---
 

@@ -61,6 +61,89 @@ const DOMAIN_KEYWORDS: Record<string, string[]> = {
   "인증":           ["인증", "토큰", "OAuth"],
 };
 
+const CATEGORY_KEYWORD_ALIASES: Record<string, string[]> = {
+  "인증": ["auth", "oauth", "oauth2", "token", "토큰", "authorization", "bearer"],
+  "주문": ["order", "orders", "product-order", "발주", "발송", "교환", "반품", "취소"],
+  "상품": ["product", "products", "originproduct", "channelproduct", "원상품", "채널상품"],
+  "정산": ["settle", "settlement", "vat", "부가세", "세금"],
+  "문의": ["inquiry", "qna", "question", "answer", "문의", "답변"],
+  "API데이터솔루션": ["stats", "bizdata", "analytics", "report", "통계", "분석", "리포트"],
+  "커머스솔루션": ["commerce-solution", "subscription", "wallet", "transaction", "비즈월렛"],
+  "판매자정보": ["seller", "merchant", "smartstore", "판매자", "셀러", "스마트스토어"],
+  "물류": ["logistics", "delivery", "sku", "nfa", "물류", "배송", "택배"],
+  "기타": ["reference"],
+};
+
+const TAG_KEYWORD_ALIASES: Record<string, string[]> = {
+  auth: ["인증", "oauth", "oauth2", "token", "토큰", "authorization", "bearer"],
+  oauth2: ["oauth", "auth", "인증", "token", "토큰", "client_credentials"],
+  product: ["상품", "products", "originproduct", "channelproduct", "원상품", "채널상품"],
+  order: ["주문", "orders", "product-order", "발주", "발송", "교환", "반품", "취소"],
+  settle: ["정산", "settlement", "vat", "부가세"],
+  inquiry: ["문의", "qna", "question", "answer", "답변"],
+  stats: ["통계", "분석", "report", "analytics", "bizdata"],
+  "commerce-solution": ["커머스솔루션", "subscription", "transaction", "wallet", "비즈월렛"],
+  seller: ["판매자", "seller", "merchant", "smartstore", "스마트스토어"],
+  logistics: ["물류", "logistics", "delivery", "sku", "nfa", "배송", "택배"],
+  schema: ["구조체", "schema"],
+  category: ["카테고리", "category", "index"],
+  reference: ["reference", "guide"],
+  sitemap: ["사이트맵", "sitemap", "map", "구조", "overview"],
+  tree: ["트리", "tree", "구조", "관계도"],
+};
+
+const SEGMENT_KEYWORD_ALIASES: Record<string, string[]> = {
+  oauth2: ["auth", "oauth", "인증", "token", "토큰", "client_credentials"],
+  token: ["auth", "oauth2", "인증", "토큰", "authorization", "bearer"],
+  seller: ["판매자", "seller", "merchant", "smartstore", "스마트스토어"],
+  sellers: ["판매자", "seller", "merchant", "smartstore", "스마트스토어"],
+  merchant: ["판매자", "merchant", "seller"],
+  products: ["product", "상품", "originproduct", "channelproduct", "원상품", "채널상품"],
+  product: ["products", "상품"],
+  originproducts: ["originproduct", "원상품"],
+  channelproducts: ["channelproduct", "채널상품"],
+  search: ["조회", "검색", "목록", "find", "list"],
+  categories: ["카테고리", "category"],
+  category: ["카테고리", "category"],
+  brands: ["브랜드", "brand"],
+  manufacturers: ["제조사", "manufacturer"],
+  model: ["모델", "model"],
+  models: ["모델", "model"],
+  images: ["이미지", "image", "upload"],
+  image: ["이미지", "image", "upload"],
+  upload: ["업로드", "upload", "image", "이미지"],
+  tags: ["태그", "tag"],
+  options: ["옵션", "option"],
+  option: ["옵션", "option"],
+  notices: ["공지사항", "notice"],
+  qnas: ["문의", "qna", "question", "answer", "답변"],
+  inquiries: ["문의", "inquiry", "question", "answer", "답변"],
+  contents: ["콘텐츠", "content", "notice", "qna"],
+  logistics: ["물류", "delivery", "배송", "택배", "sku", "nfa"],
+  delivery: ["배송", "delivery", "logistics", "택배"],
+  settle: ["정산", "settlement", "vat", "부가세"],
+  vat: ["부가세", "vat", "정산"],
+  subscriptions: ["구독", "subscription"],
+  transactions: ["거래", "transaction"],
+  bizdata: ["통계", "분석", "bizdata", "stats", "report"],
+  stats: ["통계", "분석", "bizdata", "stats", "report"],
+  channels: ["채널", "channel"],
+  sku: ["sku", "재고", "물류", "logistics"],
+  nfa: ["nfa", "물류", "logistics"],
+};
+
+interface BuildKeywordsArgs {
+  docId: string;
+  title: string;
+  description: string;
+  pageType: string;
+  method: string;
+  apiPath: string;
+  category: string;
+  tags: string[];
+  sourceUrl: string;
+}
+
 // ── 카테고리 / 태그 추론 ──────────────────────────────────────────────────────
 
 export function getCategoryAndTags(apiPath: string): [string, string[]] {
@@ -119,6 +202,65 @@ export function makeDocId(
   return `${prefix}-${slug}`;
 }
 
+export function buildKeywords(args: BuildKeywordsArgs): string[] {
+  const collector = createKeywordCollector();
+  const {
+    title,
+    method,
+    apiPath,
+    category,
+    tags,
+    sourceUrl,
+  } = args;
+
+  collector.add(title);
+  collector.addPhrase(title);
+
+  collector.add(category);
+  collector.addMany(CATEGORY_KEYWORD_ALIASES[category] ?? []);
+
+  collector.addMany(tags);
+  for (const tag of tags) {
+    collector.addMany(TAG_KEYWORD_ALIASES[tag] ?? []);
+  }
+
+  if (method) {
+    collector.add(method);
+  }
+
+  if (apiPath) {
+    collector.add(apiPath);
+    if (method) collector.add(`${method} ${apiPath}`);
+    const segments = apiPath
+      .replace(/^\//, "")
+      .split("/")
+      .map((segment) => segment.replace(/[{}]/g, ""))
+      .map((segment) => normalizeKeyword(segment))
+      .filter(Boolean);
+
+    for (const segment of segments) {
+      collector.add(segment);
+      if (segment.endsWith("s") && segment.length > 4) collector.add(segment.slice(0, -1));
+      collector.addMany(SEGMENT_KEYWORD_ALIASES[segment] ?? []);
+    }
+
+    if (segments.length >= 2) collector.add(segments.join(" "));
+    if (segments.length >= 3) collector.add(segments.slice(-2).join(" "));
+    if (segments.length >= 2 && /^v\d+$/.test(segments[0])) {
+      collector.add(segments.slice(1).join(" "));
+    }
+  }
+
+  const sourceSlug = sourceUrl.replace(/\/$/, "").split("/").pop() ?? "";
+  collector.add(sourceSlug);
+  for (const token of tokenizeKeywords(sourceSlug)) {
+    collector.add(token);
+    collector.addMany(SEGMENT_KEYWORD_ALIASES[token] ?? []);
+  }
+
+  return collector.values();
+}
+
 // ── frontmatter 빌드 ──────────────────────────────────────────────────────────
 
 export function buildFrontmatter(
@@ -131,6 +273,7 @@ export function buildFrontmatter(
   baseUrl: string,
   category: string,
   tags: string[],
+  keywords: string[],
   sourceUrl: string,
 ): string {
   const today = new Date().toISOString().slice(0, 10);
@@ -152,10 +295,63 @@ export function buildFrontmatter(
   for (const tag of [...new Set(tags)].sort()) {
     lines.push(`  - ${tag}`);
   }
+  lines.push("keywords:");
+  for (const keyword of keywords) {
+    lines.push(`  - "${keyword.replace(/"/g, '\\"')}"`);
+  }
   lines.push("status: stable");
   lines.push(`updated: "${today}"`);
   if (sourceUrl) lines.push(`source: ${sourceUrl}`);
   lines.push("---");
 
   return lines.join("\n");
+}
+
+function createKeywordCollector() {
+  const seen = new Set<string>();
+  const values: string[] = [];
+
+  const add = (value: string): void => {
+    const normalized = normalizeKeyword(value);
+    if (!normalized || seen.has(normalized)) return;
+    seen.add(normalized);
+    values.push(normalized);
+  };
+
+  return {
+    add,
+    addMany(items: string[]): void {
+      for (const item of items) add(item);
+    },
+    addPhrase(value: string): void {
+      const tokens = tokenizeKeywords(value);
+      add(tokens.join(" "));
+      for (let i = 0; i < tokens.length - 1; i++) {
+        add(`${tokens[i]} ${tokens[i + 1]}`);
+      }
+    },
+    values(): string[] {
+      return values.slice(0, 48);
+    },
+  };
+}
+
+function tokenizeKeywords(value: string): string[] {
+  return [
+    ...new Set(
+      normalizeKeyword(value)
+        .split(/[\s/_.-]+/g)
+        .map((token) => token.trim())
+        .filter((token) => token.length >= 2),
+    ),
+  ];
+}
+
+function normalizeKeyword(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[`"'“”‘’]/g, "")
+    .replace(/[^a-z0-9가-힣/_{}.\-\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }

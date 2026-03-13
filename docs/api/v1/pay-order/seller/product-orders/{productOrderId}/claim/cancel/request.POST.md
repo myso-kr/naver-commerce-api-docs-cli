@@ -10,8 +10,39 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "취소 요청"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/{productorderid}/claim/cancel/request"
+  - "post /v1/pay-order/seller/product-orders/{productorderid}/claim/cancel/request"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "productorderid"
+  - "claim"
+  - "cancel"
+  - "request"
+  - "v1 pay-order seller product-orders productorderid claim cancel request"
+  - "cancel request"
+  - "pay-order seller product-orders productorderid claim cancel request"
+  - "seller-request-cancel-pay-order-seller"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-request-cancel-pay-order-seller
 ---
 

@@ -10,8 +10,32 @@ category: 정산
 tags:
   - get
   - settle
+keywords:
+  - "일별 부가세 내역 조회"
+  - "일별 부가세"
+  - "부가세 내역"
+  - "내역 조회"
+  - "정산"
+  - "settle"
+  - "settlement"
+  - "vat"
+  - "부가세"
+  - "세금"
+  - "get"
+  - "/v1/pay-settle/vat/daily"
+  - "get /v1/pay-settle/vat/daily"
+  - "v1"
+  - "pay-settle"
+  - "daily"
+  - "v1 pay-settle vat daily"
+  - "vat daily"
+  - "pay-settle vat daily"
+  - "find-daily-vat-declaration-pay-settle"
+  - "find"
+  - "declaration"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/find-daily-vat-declaration-pay-settle
 ---
 

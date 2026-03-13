@@ -10,8 +10,31 @@ category: 판매자정보
 tags:
   - get
   - seller
+keywords:
+  - "계정 정보 조회"
+  - "계정 정보"
+  - "정보 조회"
+  - "판매자정보"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "판매자"
+  - "셀러"
+  - "스마트스토어"
+  - "get"
+  - "/v1/seller/account"
+  - "get /v1/seller/account"
+  - "v1"
+  - "account"
+  - "v1 seller account"
+  - "seller account"
+  - "get-account-info-by-account-no-sellers"
+  - "info"
+  - "by"
+  - "no"
+  - "sellers"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-account-info-by-account-no-sellers
 ---
 

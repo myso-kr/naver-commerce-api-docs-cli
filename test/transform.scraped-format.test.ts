@@ -10,7 +10,7 @@ import {
   makeDestPath,
 } from "../src/transform/converter.js";
 import { convertMethodBlock } from "../src/transform/fixes.js";
-import { transformFile } from "../src/transform/index.js";
+import { run as runTransform, transformFile } from "../src/transform/index.js";
 import { parseFrontmatter } from "../src/core/frontmatter.js";
 
 describe("scraped raw format compatibility", () => {
@@ -107,5 +107,115 @@ describe("scraped raw format compatibility", () => {
     expect(body).toMatch(/카테고리 인덱스입니다/);
     expect(body).toMatch(/## 관련 문서/);
     expect(body).toMatch(/\| \[브랜드 조회\]\(\.\.\/api\/v1\/product-brands\.GET\.md\) \| 브랜드 조회 \|/);
+  });
+
+  it("detects newline-delimited category cards from fresh scrape output", () => {
+    const content = [
+      "# OAuth 2.0",
+      "",
+      "> 원문: https://apicenter.commerce.naver.com/docs/commerce-api/current/o-auth-2-0",
+      "",
+      "OAuth 2.0 API",
+      "",
+      "[",
+      "",
+      "## 📄️ 인증 토큰 발급 요청",
+      "",
+      "인증 문서 설명",
+      "",
+      "](/docs/commerce-api/current/exchange-sellers-auth)",
+    ].join("\n");
+
+    expect(detectPageType(content, "o-auth-2-0.md")).toBe("category-index");
+  });
+
+  it("emits frontmatter keywords derived from api metadata", () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), "naver-commerce-keywords-"));
+    const srcRoot = path.join(tmpRoot, "raws");
+    const dstRoot = path.join(tmpRoot, "docs");
+    const srcPath = path.join(srcRoot, "oauth-token.md");
+
+    fs.mkdirSync(srcRoot, { recursive: true });
+    fs.writeFileSync(
+      srcPath,
+      [
+        "# 인증 토큰 발급 요청",
+        "",
+        "> 원문: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-access-token",
+        "",
+        "POST ",
+        "",
+        "## /v1/oauth2/token",
+        "",
+        "OAuth 2.0 client credentials 방식으로 인증 토큰을 발급합니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    const result = transformFile(srcPath, new Map<string, string>(), { src: srcRoot, dst: dstRoot });
+    expect(result).not.toBeNull();
+
+    const [, output] = result!;
+    const [fm] = parseFrontmatter(output);
+    expect(fm.keywords).toEqual(expect.arrayContaining([
+      "oauth2",
+      "token",
+      "client_credentials",
+      "/v1/oauth2/token",
+      "post /v1/oauth2/token",
+    ]));
+    expect((fm.keywords as string[]).every((keyword) => keyword.length <= 96)).toBe(true);
+  });
+
+  it("generates a sitemap guide from normalized docs", () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), "naver-commerce-sitemap-"));
+    const srcRoot = path.join(tmpRoot, "raws");
+    const dstRoot = path.join(tmpRoot, "docs");
+
+    fs.mkdirSync(srcRoot, { recursive: true });
+    fs.writeFileSync(
+      path.join(srcRoot, "oauth-token.md"),
+      [
+        "# 인증 토큰 발급 요청",
+        "",
+        "> 원문: https://apicenter.commerce.naver.com/docs/commerce-api/current/exchange-sellers-auth",
+        "",
+        "POST ",
+        "",
+        "## /v1/oauth2/token",
+        "",
+        "OAuth 2.0 client credentials 방식으로 인증 토큰을 발급합니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+    fs.writeFileSync(
+      path.join(srcRoot, "create-product.md"),
+      [
+        "# 상품 등록",
+        "",
+        "> 원문: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-product-product",
+        "",
+        "POST ",
+        "",
+        "## /v2/products",
+        "",
+        "상품을 등록합니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    expect(runTransform({ src: srcRoot, dst: dstRoot })).toBe(0);
+
+    const sitemapPath = path.join(dstRoot, "guide", "sitemap.md");
+    expect(fs.existsSync(sitemapPath)).toBe(true);
+
+    const [fm, body] = parseFrontmatter(fs.readFileSync(sitemapPath, "utf-8"));
+    expect(fm.title).toBe("커머스API 사이트맵");
+    expect(fm.tags).toEqual(expect.arrayContaining(["reference", "sitemap", "tree"]));
+    expect(body).toMatch(/## 카테고리 트리/);
+    expect(body).toMatch(/\[인증 토큰 발급 요청\]\(\.\.\/api\/v1\/oauth2\/token\.POST\.md\)/);
+    expect(body).toMatch(/## API 경로 트리/);
+    expect(body).toMatch(/POST `\/v1\/oauth2\/token`/);
+    expect(body).toMatch(/POST `\/v2\/products`/);
   });
 });

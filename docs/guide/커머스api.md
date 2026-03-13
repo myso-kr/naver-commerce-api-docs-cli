@@ -6,8 +6,13 @@ type: guide
 category: 기타
 tags:
   - reference
+keywords:
+  - "커머스api"
+  - "기타"
+  - "reference"
+  - "guide"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/커머스api
 ---
 

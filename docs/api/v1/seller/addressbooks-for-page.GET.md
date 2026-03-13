@@ -10,8 +10,30 @@ category: 판매자정보
 tags:
   - get
   - seller
+keywords:
+  - "주소록 목록 조회"
+  - "주소록 목록"
+  - "목록 조회"
+  - "판매자정보"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "판매자"
+  - "셀러"
+  - "스마트스토어"
+  - "get"
+  - "/v1/seller/addressbooks-for-page"
+  - "get /v1/seller/addressbooks-for-page"
+  - "v1"
+  - "addressbooks-for-page"
+  - "v1 seller addressbooks-for-page"
+  - "seller addressbooks-for-page"
+  - "get-page-addresses-sellers"
+  - "page"
+  - "addresses"
+  - "sellers"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-page-addresses-sellers
 ---
 

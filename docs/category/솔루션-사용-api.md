@@ -7,8 +7,22 @@ category: 기타
 tags:
   - category
   - reference
+keywords:
+  - "솔루션 사용 api"
+  - "솔루션 사용"
+  - "사용 api"
+  - "기타"
+  - "reference"
+  - "category"
+  - "guide"
+  - "카테고리"
+  - "index"
+  - "솔루션-사용-api"
+  - "솔루션"
+  - "사용"
+  - "api"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/솔루션-사용-api
 ---
 

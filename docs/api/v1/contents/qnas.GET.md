@@ -10,8 +10,32 @@ category: 문의
 tags:
   - get
   - inquiry
+keywords:
+  - "상품 문의 목록 조회"
+  - "상품 문의"
+  - "문의 목록"
+  - "목록 조회"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "get"
+  - "/v1/contents/qnas"
+  - "get /v1/contents/qnas"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "qnas"
+  - "v1 contents qnas"
+  - "contents qnas"
+  - "get-comments-contents"
+  - "comments"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-comments-contents
 ---
 

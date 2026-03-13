@@ -10,8 +10,33 @@ category: 문의
 tags:
   - inquiry
   - put
+keywords:
+  - "공지사항 수정"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "put"
+  - "/v1/contents/seller-notices/{sellernoticeid}"
+  - "put /v1/contents/seller-notices/{sellernoticeid}"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "seller-notices"
+  - "seller-notice"
+  - "sellernoticeid"
+  - "v1 contents seller-notices sellernoticeid"
+  - "seller-notices sellernoticeid"
+  - "contents seller-notices sellernoticeid"
+  - "update-post-contents"
+  - "update"
+  - "post"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-post-contents
 ---
 

@@ -10,8 +10,26 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "제조사 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-manufacturers"
+  - "get /v1/product-manufacturers"
+  - "v1"
+  - "product-manufacturers"
+  - "product-manufacturer"
+  - "v1 product-manufacturers"
+  - "get-manufacturer-list-product"
+  - "manufacturer"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-manufacturer-list-product
 ---
 

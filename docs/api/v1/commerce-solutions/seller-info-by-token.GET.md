@@ -10,8 +10,43 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - get
+keywords:
+  - "판매자 인증 jwe 해석 api"
+  - "판매자 인증"
+  - "인증 jwe"
+  - "jwe 해석"
+  - "해석 api"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "get"
+  - "/v1/commerce-solutions/seller-info-by-token"
+  - "get /v1/commerce-solutions/seller-info-by-token"
+  - "v1"
+  - "commerce-solutions"
+  - "seller-info-by-token"
+  - "v1 commerce-solutions seller-info-by-token"
+  - "commerce-solutions seller-info-by-token"
+  - "get-seller-info-by-token-merchant"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "info"
+  - "by"
+  - "token"
+  - "auth"
+  - "oauth2"
+  - "인증"
+  - "토큰"
+  - "authorization"
+  - "bearer"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-seller-info-by-token-merchant
 ---
 

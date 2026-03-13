@@ -10,8 +10,32 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "채널 상품 공지사항 적용"
+  - "채널 상품"
+  - "상품 공지사항"
+  - "공지사항 적용"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v1/products/channel-products/notice/apply"
+  - "put /v1/products/channel-products/notice/apply"
+  - "v1"
+  - "channel-products"
+  - "channel-product"
+  - "notice"
+  - "apply"
+  - "v1 products channel-products notice apply"
+  - "notice apply"
+  - "products channel-products notice apply"
+  - "apply-notice-product"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/apply-notice-product
 ---
 

@@ -10,8 +10,33 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - get
+keywords:
+  - "사용 상태 조회"
+  - "사용 상태"
+  - "상태 조회"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "get"
+  - "/v1/commerce-solutions/subscriptions/{accountuid}"
+  - "get /v1/commerce-solutions/subscriptions/{accountuid}"
+  - "v1"
+  - "commerce-solutions"
+  - "subscriptions"
+  - "구독"
+  - "accountuid"
+  - "v1 commerce-solutions subscriptions accountuid"
+  - "subscriptions accountuid"
+  - "commerce-solutions subscriptions accountuid"
+  - "get-subscription-merchant"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-subscription-merchant
 ---
 

@@ -22,6 +22,7 @@ import {
   getCategoryAndTags,
   guessCategoryFromContent,
   makeDocId,
+  buildKeywords,
   buildFrontmatter,
 } from "./frontmatter.js";
 import {
@@ -53,6 +54,7 @@ import {
   generateLlmsFullTxtFromDocs,
   type TransformResult,
 } from "./llms.js";
+import { generateSitemapDoc } from "./sitemap.js";
 
 export interface TransformOpts {
   src?: string;
@@ -99,6 +101,17 @@ export function transformFile(
 
   const docId = makeDocId(pageType, apiPath, method, sourceUrl, title);
   const description = extractDescription(content, title, pageType);
+  const keywords = buildKeywords({
+    docId,
+    title,
+    description,
+    pageType,
+    method,
+    apiPath,
+    category,
+    tags,
+    sourceUrl,
+  });
   const dest = makeDestPath(pageType, apiPath, method, srcName, { dst: _dst });
 
   // 3. 콘텐츠 변환
@@ -133,7 +146,7 @@ export function transformFile(
   // 4. frontmatter 생성
   const frontmatter = buildFrontmatter(
     docId, title, description, pageType, method, apiPath,
-    baseUrl, category, tags, sourceUrl,
+    baseUrl, category, tags, keywords, sourceUrl,
   );
 
   // 5. 기존 frontmatter 제거
@@ -214,6 +227,16 @@ export function run(opts: TransformOpts): number {
     fixGuideIndexLinks(guideIndex, srcToDest);
     verbose("fix_guide_index", {
       file: path.relative(dst, guideIndex).replace(/\\/g, "/"),
+    });
+  }
+
+  const sitemapDoc = generateSitemapDoc({ dst });
+  if (sitemapDoc) {
+    results.push(sitemapDoc);
+    typeCounts.guide = (typeCounts.guide ?? 0) + 1;
+    verbose("sitemap", {
+      file: path.relative(dst, sitemapDoc[1]).replace(/\\/g, "/"),
+      ok: true,
     });
   }
 

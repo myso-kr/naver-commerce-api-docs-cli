@@ -10,8 +10,30 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "카탈로그 단건 조회"
+  - "카탈로그 단건"
+  - "단건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-models/{id}"
+  - "get /v1/product-models/{id}"
+  - "v1"
+  - "product-models"
+  - "product-model"
+  - "id"
+  - "v1 product-models id"
+  - "product-models id"
+  - "get-model-product"
+  - "model"
+  - "모델"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-model-product
 ---
 

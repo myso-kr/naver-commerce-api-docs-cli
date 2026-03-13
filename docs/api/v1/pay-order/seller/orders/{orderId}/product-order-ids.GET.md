@@ -10,8 +10,44 @@ category: 주문
 tags:
   - get
   - order
+keywords:
+  - "상품 주문 목록 조회"
+  - "상품 주문"
+  - "주문 목록"
+  - "목록 조회"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "get"
+  - "/v1/pay-order/seller/orders/{orderid}/product-order-ids"
+  - "get /v1/pay-order/seller/orders/{orderid}/product-order-ids"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "orderid"
+  - "product-order-ids"
+  - "product-order-id"
+  - "v1 pay-order seller orders orderid product-order-ids"
+  - "orderid product-order-ids"
+  - "pay-order seller orders orderid product-order-ids"
+  - "seller-get-product-order-ids-pay-order-seller"
+  - "product"
+  - "products"
+  - "상품"
+  - "ids"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-get-product-order-ids-pay-order-seller
 ---
 

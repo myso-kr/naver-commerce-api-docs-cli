@@ -10,8 +10,42 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "상품 성과 api"
+  - "상품 성과"
+  - "성과 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/sales/product/detail"
+  - "get /v1/bizdata-stats/channels/{channelno}/sales/product/detail"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "sales"
+  - "sale"
+  - "product"
+  - "products"
+  - "상품"
+  - "detail"
+  - "v1 bizdata-stats channels channelno sales product detail"
+  - "product detail"
+  - "bizdata-stats channels channelno sales product detail"
+  - "product-unit-report-using-get-bizdata-stats"
+  - "unit"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/product-unit-report-using-get-bizdata-stats
 ---
 

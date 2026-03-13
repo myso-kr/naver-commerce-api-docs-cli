@@ -10,8 +10,33 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - put
+keywords:
+  - "사용 중지"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "put"
+  - "/v1/commerce-solutions/subscriptions/{accountuid}/unsubscription"
+  - "put /v1/commerce-solutions/subscriptions/{accountuid}/unsubscription"
+  - "v1"
+  - "commerce-solutions"
+  - "subscriptions"
+  - "구독"
+  - "accountuid"
+  - "unsubscription"
+  - "v1 commerce-solutions subscriptions accountuid unsubscription"
+  - "accountuid unsubscription"
+  - "commerce-solutions subscriptions accountuid unsubscription"
+  - "force-unsubscription-merchant"
+  - "force"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/force-unsubscription-merchant
 ---
 

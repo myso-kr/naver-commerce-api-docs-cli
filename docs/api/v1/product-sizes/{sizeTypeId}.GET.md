@@ -10,8 +10,31 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "사이즈 타입 조회"
+  - "사이즈 타입"
+  - "타입 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-sizes/{sizetypeid}"
+  - "get /v1/product-sizes/{sizetypeid}"
+  - "v1"
+  - "product-sizes"
+  - "product-size"
+  - "sizetypeid"
+  - "v1 product-sizes sizetypeid"
+  - "product-sizes sizetypeid"
+  - "get-size-type-vo-product"
+  - "size"
+  - "type"
+  - "vo"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-size-type-vo-product
 ---
 

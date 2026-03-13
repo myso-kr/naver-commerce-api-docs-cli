@@ -10,8 +10,32 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "카테고리별 속성값 조회"
+  - "카테고리별 속성값"
+  - "속성값 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-attributes/attribute-values"
+  - "get /v1/product-attributes/attribute-values"
+  - "v1"
+  - "product-attributes"
+  - "product-attribute"
+  - "attribute-values"
+  - "attribute-value"
+  - "v1 product-attributes attribute-values"
+  - "product-attributes attribute-values"
+  - "get-attribute-value-list-product"
+  - "attribute"
+  - "value"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-attribute-value-list-product
 ---
 

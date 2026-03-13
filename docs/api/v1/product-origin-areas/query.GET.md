@@ -10,8 +10,33 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "원산지 코드 정보 다건 조회"
+  - "원산지 코드"
+  - "코드 정보"
+  - "정보 다건"
+  - "다건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-origin-areas/query"
+  - "get /v1/product-origin-areas/query"
+  - "v1"
+  - "product-origin-areas"
+  - "product-origin-area"
+  - "query"
+  - "v1 product-origin-areas query"
+  - "product-origin-areas query"
+  - "get-origin-area-list-product"
+  - "origin"
+  - "area"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-origin-area-list-product
 ---
 

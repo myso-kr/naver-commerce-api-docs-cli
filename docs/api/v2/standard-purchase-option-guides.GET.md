@@ -10,8 +10,35 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 판매 옵션 정보 조회"
+  - "v2 판매"
+  - "판매 옵션"
+  - "옵션 정보"
+  - "정보 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/standard-purchase-option-guides"
+  - "get /v2/standard-purchase-option-guides"
+  - "v2"
+  - "standard-purchase-option-guides"
+  - "standard-purchase-option-guide"
+  - "v2 standard-purchase-option-guides"
+  - "get-option-guides-by-category-id-product"
+  - "option"
+  - "옵션"
+  - "guides"
+  - "by"
+  - "category"
+  - "카테고리"
+  - "id"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-option-guides-by-category-id-product
 ---
 

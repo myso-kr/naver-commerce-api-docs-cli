@@ -7,8 +7,17 @@ category: 기타
 tags:
   - category
   - reference
+keywords:
+  - "커머스api"
+  - "기타"
+  - "reference"
+  - "category"
+  - "guide"
+  - "카테고리"
+  - "index"
+  - "current"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current
 ---
 

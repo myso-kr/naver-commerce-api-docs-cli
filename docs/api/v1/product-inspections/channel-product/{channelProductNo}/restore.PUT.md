@@ -10,8 +10,35 @@ category: 기타
 tags:
   - put
   - reference
+keywords:
+  - "수정 요청 상품에 대해 복원 요청"
+  - "수정 요청 상품에 대해 복원"
+  - "수정 요청"
+  - "요청 상품에"
+  - "상품에 대해"
+  - "대해 복원"
+  - "기타"
+  - "reference"
+  - "put"
+  - "guide"
+  - "/v1/product-inspections/channel-product/{channelproductno}/restore"
+  - "put /v1/product-inspections/channel-product/{channelproductno}/restore"
+  - "v1"
+  - "product-inspections"
+  - "product-inspection"
+  - "channel-product"
+  - "channelproductno"
+  - "restore"
+  - "v1 product-inspections channel-product channelproductno restore"
+  - "channelproductno restore"
+  - "product-inspections channel-product channelproductno restore"
+  - "restore-inspection-product-product"
+  - "inspection"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/restore-inspection-product-product
 ---
 

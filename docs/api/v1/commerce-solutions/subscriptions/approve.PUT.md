@@ -10,8 +10,33 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - put
+keywords:
+  - "사용 시작 승인"
+  - "사용 시작"
+  - "시작 승인"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "put"
+  - "/v1/commerce-solutions/subscriptions/approve"
+  - "put /v1/commerce-solutions/subscriptions/approve"
+  - "v1"
+  - "commerce-solutions"
+  - "subscriptions"
+  - "구독"
+  - "approve"
+  - "v1 commerce-solutions subscriptions approve"
+  - "subscriptions approve"
+  - "commerce-solutions subscriptions approve"
+  - "approve-subscription-merchant"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/approve-subscription-merchant
 ---
 

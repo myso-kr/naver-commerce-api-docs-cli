@@ -10,8 +10,34 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - put
+keywords:
+  - "사용 시작 거절"
+  - "사용 시작"
+  - "시작 거절"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "put"
+  - "/v1/commerce-solutions/subscriptions/{accountuid}/reject"
+  - "put /v1/commerce-solutions/subscriptions/{accountuid}/reject"
+  - "v1"
+  - "commerce-solutions"
+  - "subscriptions"
+  - "구독"
+  - "accountuid"
+  - "reject"
+  - "v1 commerce-solutions subscriptions accountuid reject"
+  - "accountuid reject"
+  - "commerce-solutions subscriptions accountuid reject"
+  - "reject-subscription-merchant"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/reject-subscription-merchant
 ---
 

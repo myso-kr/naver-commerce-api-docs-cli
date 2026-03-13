@@ -10,8 +10,34 @@ category: 판매자정보
 tags:
   - get
   - seller
+keywords:
+  - "계정으로 채널 정보 조회"
+  - "계정으로 채널"
+  - "채널 정보"
+  - "정보 조회"
+  - "판매자정보"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "판매자"
+  - "셀러"
+  - "스마트스토어"
+  - "get"
+  - "/v1/seller/channels"
+  - "get /v1/seller/channels"
+  - "v1"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "v1 seller channels"
+  - "seller channels"
+  - "get-channels-by-account-no-sellers"
+  - "by"
+  - "account"
+  - "no"
+  - "sellers"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-channels-by-account-no-sellers
 ---
 

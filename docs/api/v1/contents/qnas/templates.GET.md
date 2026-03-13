@@ -10,8 +10,37 @@ category: 문의
 tags:
   - get
   - inquiry
+keywords:
+  - "상품 문의 답변 템플릿 목록 조회"
+  - "상품 문의"
+  - "문의 답변"
+  - "답변 템플릿"
+  - "템플릿 목록"
+  - "목록 조회"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "get"
+  - "/v1/contents/qnas/templates"
+  - "get /v1/contents/qnas/templates"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "qnas"
+  - "templates"
+  - "template"
+  - "v1 contents qnas templates"
+  - "qnas templates"
+  - "contents qnas templates"
+  - "get-comment-templates-contents"
+  - "comment"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-comment-templates-contents
 ---
 

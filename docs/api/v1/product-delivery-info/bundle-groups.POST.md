@@ -10,8 +10,35 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "묶음배송 그룹 등록"
+  - "묶음배송 그룹"
+  - "그룹 등록"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v1/product-delivery-info/bundle-groups"
+  - "post /v1/product-delivery-info/bundle-groups"
+  - "v1"
+  - "product-delivery-info"
+  - "bundle-groups"
+  - "bundle-group"
+  - "v1 product-delivery-info bundle-groups"
+  - "product-delivery-info bundle-groups"
+  - "create-delivery-bundle-group-product"
+  - "create"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "bundle"
+  - "group"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-delivery-bundle-group-product
 ---
 

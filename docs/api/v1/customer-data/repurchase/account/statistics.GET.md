@@ -10,8 +10,35 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "재구매 통계 api"
+  - "재구매 통계"
+  - "통계 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/customer-data/repurchase/account/statistics"
+  - "get /v1/customer-data/repurchase/account/statistics"
+  - "v1"
+  - "customer-data"
+  - "repurchase"
+  - "account"
+  - "statistics"
+  - "statistic"
+  - "v1 customer-data repurchase account statistics"
+  - "account statistics"
+  - "customer-data repurchase account statistics"
+  - "get-repurchase-data-insight"
+  - "data"
+  - "insight"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-repurchase-data-insight
 ---
 

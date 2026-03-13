@@ -10,8 +10,36 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - post
+keywords:
+  - "외부 개발사 자체 결제 내역 전송"
+  - "외부 개발사"
+  - "개발사 자체"
+  - "자체 결제"
+  - "결제 내역"
+  - "내역 전송"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "post"
+  - "/v1/commerce-solutions/external-transactions"
+  - "post /v1/commerce-solutions/external-transactions"
+  - "v1"
+  - "commerce-solutions"
+  - "external-transactions"
+  - "external-transaction"
+  - "v1 commerce-solutions external-transactions"
+  - "commerce-solutions external-transactions"
+  - "send-transaction-external-merchant"
+  - "send"
+  - "external"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/send-transaction-external-merchant
 ---
 

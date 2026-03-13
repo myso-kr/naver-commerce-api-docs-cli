@@ -10,8 +10,34 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "판매 상태 변경"
+  - "판매 상태"
+  - "상태 변경"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v1/products/origin-products/{originproductno}/change-status"
+  - "put /v1/products/origin-products/{originproductno}/change-status"
+  - "v1"
+  - "origin-products"
+  - "origin-product"
+  - "originproductno"
+  - "change-status"
+  - "change-statu"
+  - "v1 products origin-products originproductno change-status"
+  - "originproductno change-status"
+  - "products origin-products originproductno change-status"
+  - "read-channel-product-product"
+  - "read"
+  - "channel"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/read-channel-product-product
 ---
 

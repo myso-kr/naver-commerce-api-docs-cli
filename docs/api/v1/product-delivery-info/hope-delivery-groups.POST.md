@@ -10,8 +10,35 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "희망일배송 그룹 등록"
+  - "희망일배송 그룹"
+  - "그룹 등록"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v1/product-delivery-info/hope-delivery-groups"
+  - "post /v1/product-delivery-info/hope-delivery-groups"
+  - "v1"
+  - "product-delivery-info"
+  - "hope-delivery-groups"
+  - "hope-delivery-group"
+  - "v1 product-delivery-info hope-delivery-groups"
+  - "product-delivery-info hope-delivery-groups"
+  - "create-hope-delivery-group-product"
+  - "create"
+  - "hope"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "group"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-hope-delivery-group-product
 ---
 

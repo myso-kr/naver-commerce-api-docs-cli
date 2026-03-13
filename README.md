@@ -107,6 +107,8 @@ npx naver-commerce-api-docs-cli transform --debug
 기본 경로 규칙은 아래와 같습니다.
 
 - 자연어 질문 명령(`ask`): guide/api/category/schema를 함께 검색하고 랭킹된 근거 match를 반환합니다.
+- 정규화 문서는 frontmatter의 `keywords` 배열을 함께 생성합니다. `ask`와 `api --query`는 제목/설명/본문뿐 아니라 이 `keywords`도 함께 스캔하므로, 동의어와 도메인 별칭을 문서 메타데이터 레벨에서 보강할 수 있습니다.
+- 정규화 시 `guide/sitemap.md`도 함께 생성합니다. 이 문서는 카테고리 트리와 API 경로 트리를 담는 구조 인덱스이며, `ask`는 category/guide 문서의 내부 링크를 따라 관련 API 문서에 점수를 일부 전파합니다.
 - `ask`는 휴리스틱 검색기입니다. 최종 답변은 이 결과를 호출한 LLM이 스스로 결정해야 합니다. 애매하면 `api --path`, `api --query`, 매치 파일 본문 확인으로 보강해야 합니다.
 - `ask --format compact`를 쓰면 `tags`, `description`, `score`, `matched_terms`, `source`를 생략한 짧은 근거만 반환합니다. `--body`를 함께 주면 compact에서도 본문은 포함됩니다.
 - 배포 패키지는 정규화된 `docs/`를 함께 동봉합니다. 로컬 `./docs`가 없으면 번들 문서를 바로 사용하므로, 일반적인 조회에는 `sync`가 필요하지 않습니다.

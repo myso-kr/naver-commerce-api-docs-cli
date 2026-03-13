@@ -10,8 +10,37 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "수정 요청 상품 목록을 조회"
+  - "수정 요청"
+  - "요청 상품"
+  - "상품 목록을"
+  - "목록을 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-inspections/channel-products"
+  - "get /v1/product-inspections/channel-products"
+  - "v1"
+  - "product-inspections"
+  - "product-inspection"
+  - "channel-products"
+  - "channel-product"
+  - "v1 product-inspections channel-products"
+  - "product-inspections channel-products"
+  - "get-inspection-products-request-product"
+  - "inspection"
+  - "products"
+  - "product"
+  - "상품"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "request"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-inspection-products-request-product
 ---
 

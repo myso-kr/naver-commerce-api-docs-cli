@@ -10,8 +10,42 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "발송 지연 처리"
+  - "발송 지연"
+  - "지연 처리"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/{productorderid}/delay"
+  - "post /v1/pay-order/seller/product-orders/{productorderid}/delay"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "productorderid"
+  - "delay"
+  - "v1 pay-order seller product-orders productorderid delay"
+  - "productorderid delay"
+  - "pay-order seller product-orders productorderid delay"
+  - "seller-delay-dispatch-due-date-pay-order-seller"
+  - "dispatch"
+  - "due"
+  - "date"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-delay-dispatch-due-date-pay-order-seller
 ---
 

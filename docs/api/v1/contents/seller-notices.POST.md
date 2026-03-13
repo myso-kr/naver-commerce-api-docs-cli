@@ -10,8 +10,30 @@ category: 문의
 tags:
   - inquiry
   - post
+keywords:
+  - "공지사항 등록"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "post"
+  - "/v1/contents/seller-notices"
+  - "post /v1/contents/seller-notices"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "seller-notices"
+  - "seller-notice"
+  - "v1 contents seller-notices"
+  - "contents seller-notices"
+  - "create-post-contents"
+  - "create"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-post-contents
 ---
 

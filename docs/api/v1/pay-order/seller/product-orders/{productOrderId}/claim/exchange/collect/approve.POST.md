@@ -10,8 +10,43 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "교환 수거 완료"
+  - "교환 수거"
+  - "수거 완료"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/{productorderid}/claim/exchange/collect/approve"
+  - "post /v1/pay-order/seller/product-orders/{productorderid}/claim/exchange/collect/approve"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "productorderid"
+  - "claim"
+  - "exchange"
+  - "collect"
+  - "approve"
+  - "v1 pay-order seller product-orders productorderid claim exchange collect approve"
+  - "collect approve"
+  - "pay-order seller product-orders productorderid claim exchange collect approve"
+  - "seller-approve-collected-exchange-pay-order-seller"
+  - "collected"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-approve-collected-exchange-pay-order-seller
 ---
 

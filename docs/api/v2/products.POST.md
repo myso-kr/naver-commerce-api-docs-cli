@@ -10,8 +10,26 @@ category: 상품
 tags:
   - post
   - product
+keywords:
+  - "v2 상품 등록"
+  - "v2 상품"
+  - "상품 등록"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "post"
+  - "/v2/products"
+  - "post /v2/products"
+  - "v2"
+  - "v2 products"
+  - "create-product-product"
+  - "create"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-product-product
 ---
 

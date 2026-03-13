@@ -10,8 +10,34 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "전체 속성값 단위 조회"
+  - "전체 속성값"
+  - "속성값 단위"
+  - "단위 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-attributes/attribute-value-units"
+  - "get /v1/product-attributes/attribute-value-units"
+  - "v1"
+  - "product-attributes"
+  - "product-attribute"
+  - "attribute-value-units"
+  - "attribute-value-unit"
+  - "v1 product-attributes attribute-value-units"
+  - "product-attributes attribute-value-units"
+  - "get-attribute-value-unit-list-product"
+  - "attribute"
+  - "value"
+  - "unit"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-attribute-value-unit-list-product
 ---
 

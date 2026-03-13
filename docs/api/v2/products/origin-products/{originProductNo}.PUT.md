@@ -10,8 +10,32 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "v2 원상품 수정"
+  - "v2 원상품"
+  - "원상품 수정"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v2/products/origin-products/{originproductno}"
+  - "put /v2/products/origin-products/{originproductno}"
+  - "v2"
+  - "origin-products"
+  - "origin-product"
+  - "originproductno"
+  - "v2 products origin-products originproductno"
+  - "origin-products originproductno"
+  - "products origin-products originproductno"
+  - "update-origin-product-product"
+  - "update"
+  - "origin"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-origin-product-product
 ---
 

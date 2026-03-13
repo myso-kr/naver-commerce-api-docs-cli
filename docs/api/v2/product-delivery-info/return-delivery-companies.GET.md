@@ -10,8 +10,37 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 반품 택배사 다건 조회"
+  - "v2 반품"
+  - "반품 택배사"
+  - "택배사 다건"
+  - "다건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/product-delivery-info/return-delivery-companies"
+  - "get /v2/product-delivery-info/return-delivery-companies"
+  - "v2"
+  - "product-delivery-info"
+  - "return-delivery-companies"
+  - "return-delivery-companie"
+  - "v2 product-delivery-info return-delivery-companies"
+  - "product-delivery-info return-delivery-companies"
+  - "get-return-delivery-company-list-product"
+  - "return"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "company"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-return-delivery-company-list-product
 ---
 

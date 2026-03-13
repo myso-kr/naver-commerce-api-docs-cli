@@ -10,8 +10,35 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "카테고리별 표준형 옵션 조회"
+  - "카테고리별 표준형"
+  - "표준형 옵션"
+  - "옵션 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/options/standard-options"
+  - "get /v1/options/standard-options"
+  - "v1"
+  - "options"
+  - "option"
+  - "옵션"
+  - "standard-options"
+  - "standard-option"
+  - "v1 options standard-options"
+  - "options standard-options"
+  - "get-standard-option-by-category-product"
+  - "standard"
+  - "by"
+  - "category"
+  - "카테고리"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-standard-option-by-category-product
 ---
 

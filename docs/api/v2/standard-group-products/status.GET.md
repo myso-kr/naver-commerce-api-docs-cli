@@ -10,8 +10,32 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 그룹상품 요청 결과 조회"
+  - "v2 그룹상품"
+  - "그룹상품 요청"
+  - "요청 결과"
+  - "결과 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/standard-group-products/status"
+  - "get /v2/standard-group-products/status"
+  - "v2"
+  - "standard-group-products"
+  - "standard-group-product"
+  - "status"
+  - "statu"
+  - "v2 standard-group-products status"
+  - "standard-group-products status"
+  - "get-progress-product"
+  - "progress"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-progress-product
 ---
 

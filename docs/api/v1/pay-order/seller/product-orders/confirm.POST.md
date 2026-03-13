@@ -10,8 +10,42 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "발주 확인 처리"
+  - "발주 확인"
+  - "확인 처리"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/confirm"
+  - "post /v1/pay-order/seller/product-orders/confirm"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "confirm"
+  - "v1 pay-order seller product-orders confirm"
+  - "product-orders confirm"
+  - "pay-order seller product-orders confirm"
+  - "seller-confirm-placed-product-orders-pay-order-seller"
+  - "placed"
+  - "product"
+  - "products"
+  - "상품"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-confirm-placed-product-orders-pay-order-seller
 ---
 

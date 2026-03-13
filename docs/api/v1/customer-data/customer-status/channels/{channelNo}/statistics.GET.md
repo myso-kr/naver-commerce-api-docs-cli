@@ -10,8 +10,43 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "고객 현황 채널 api"
+  - "고객 현황"
+  - "현황 채널"
+  - "채널 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/customer-data/customer-status/channels/{channelno}/statistics"
+  - "get /v1/customer-data/customer-status/channels/{channelno}/statistics"
+  - "v1"
+  - "customer-data"
+  - "customer-status"
+  - "customer-statu"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "statistics"
+  - "statistic"
+  - "v1 customer-data customer-status channels channelno statistics"
+  - "channelno statistics"
+  - "customer-data customer-status channels channelno statistics"
+  - "get-store-customer-status-data-insight"
+  - "store"
+  - "customer"
+  - "status"
+  - "data"
+  - "insight"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-store-customer-status-data-insight
 ---
 

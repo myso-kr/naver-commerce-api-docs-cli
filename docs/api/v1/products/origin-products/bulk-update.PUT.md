@@ -10,8 +10,33 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "상품 벌크 업데이트"
+  - "상품 벌크"
+  - "벌크 업데이트"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v1/products/origin-products/bulk-update"
+  - "put /v1/products/origin-products/bulk-update"
+  - "v1"
+  - "origin-products"
+  - "origin-product"
+  - "bulk-update"
+  - "v1 products origin-products bulk-update"
+  - "origin-products bulk-update"
+  - "products origin-products bulk-update"
+  - "bulk-update-origin-product-product"
+  - "bulk"
+  - "update"
+  - "origin"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/bulk-update-origin-product-product
 ---
 

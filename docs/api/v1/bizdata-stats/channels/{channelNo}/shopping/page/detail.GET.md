@@ -10,8 +10,36 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "페이지별 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/shopping/page/detail"
+  - "get /v1/bizdata-stats/channels/{channelno}/shopping/page/detail"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "shopping"
+  - "page"
+  - "detail"
+  - "v1 bizdata-stats channels channelno shopping page detail"
+  - "page detail"
+  - "bizdata-stats channels channelno shopping page detail"
+  - "page-report-using-get-bizdata-stats"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/page-report-using-get-bizdata-stats
 ---
 

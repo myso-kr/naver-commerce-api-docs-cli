@@ -10,8 +10,27 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "v2 그룹상품 등록"
+  - "v2 그룹상품"
+  - "그룹상품 등록"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v2/standard-group-products"
+  - "post /v2/standard-group-products"
+  - "v2"
+  - "standard-group-products"
+  - "standard-group-product"
+  - "v2 standard-group-products"
+  - "create-product-1-product"
+  - "create"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-product-1-product
 ---
 

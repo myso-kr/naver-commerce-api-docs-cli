@@ -10,8 +10,33 @@ category: 상품
 tags:
   - get
   - product
+keywords:
+  - "상품정보제공고시 상품군 목록 조회"
+  - "상품정보제공고시 상품군"
+  - "상품군 목록"
+  - "목록 조회"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "get"
+  - "/v1/products-for-provided-notice"
+  - "get /v1/products-for-provided-notice"
+  - "v1"
+  - "products-for-provided-notice"
+  - "v1 products-for-provided-notice"
+  - "get-all-product-info-provided-notice-type-vo-product"
+  - "all"
+  - "info"
+  - "provided"
+  - "notice"
+  - "type"
+  - "vo"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-all-product-info-provided-notice-type-vo-product
 ---
 

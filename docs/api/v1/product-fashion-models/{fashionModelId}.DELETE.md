@@ -10,8 +10,29 @@ category: 기타
 tags:
   - delete
   - reference
+keywords:
+  - "패션모델 삭제"
+  - "기타"
+  - "reference"
+  - "delete"
+  - "guide"
+  - "/v1/product-fashion-models/{fashionmodelid}"
+  - "delete /v1/product-fashion-models/{fashionmodelid}"
+  - "v1"
+  - "product-fashion-models"
+  - "product-fashion-model"
+  - "fashionmodelid"
+  - "v1 product-fashion-models fashionmodelid"
+  - "product-fashion-models fashionmodelid"
+  - "delete-fashion-model-product"
+  - "fashion"
+  - "model"
+  - "모델"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/delete-fashion-model-product
 ---
 

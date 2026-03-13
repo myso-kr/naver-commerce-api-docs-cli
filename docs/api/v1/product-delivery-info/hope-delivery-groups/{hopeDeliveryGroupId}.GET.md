@@ -10,8 +10,37 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "희망일배송 그룹 단건 조회"
+  - "희망일배송 그룹"
+  - "그룹 단건"
+  - "단건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-delivery-info/hope-delivery-groups/{hopedeliverygroupid}"
+  - "get /v1/product-delivery-info/hope-delivery-groups/{hopedeliverygroupid}"
+  - "v1"
+  - "product-delivery-info"
+  - "hope-delivery-groups"
+  - "hope-delivery-group"
+  - "hopedeliverygroupid"
+  - "v1 product-delivery-info hope-delivery-groups hopedeliverygroupid"
+  - "hope-delivery-groups hopedeliverygroupid"
+  - "product-delivery-info hope-delivery-groups hopedeliverygroupid"
+  - "get-hope-delivery-group-product"
+  - "hope"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "group"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-hope-delivery-group-product
 ---
 

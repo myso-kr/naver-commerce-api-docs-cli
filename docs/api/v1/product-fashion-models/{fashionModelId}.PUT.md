@@ -10,8 +10,30 @@ category: 기타
 tags:
   - put
   - reference
+keywords:
+  - "패션모델 수정"
+  - "기타"
+  - "reference"
+  - "put"
+  - "guide"
+  - "/v1/product-fashion-models/{fashionmodelid}"
+  - "put /v1/product-fashion-models/{fashionmodelid}"
+  - "v1"
+  - "product-fashion-models"
+  - "product-fashion-model"
+  - "fashionmodelid"
+  - "v1 product-fashion-models fashionmodelid"
+  - "product-fashion-models fashionmodelid"
+  - "update-fashion-model-product"
+  - "update"
+  - "fashion"
+  - "model"
+  - "모델"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-fashion-model-product
 ---
 

@@ -10,8 +10,39 @@ category: 기타
 tags:
   - put
   - reference
+keywords:
+  - "고객 문의 답변 수정"
+  - "고객 문의"
+  - "문의 답변"
+  - "답변 수정"
+  - "기타"
+  - "reference"
+  - "put"
+  - "guide"
+  - "/v1/pay-merchant/inquiries/{inquiryno}/answer/{answercontentid}"
+  - "put /v1/pay-merchant/inquiries/{inquiryno}/answer/{answercontentid}"
+  - "v1"
+  - "pay-merchant"
+  - "inquiries"
+  - "inquirie"
+  - "문의"
+  - "inquiry"
+  - "question"
+  - "answer"
+  - "답변"
+  - "inquiryno"
+  - "answercontentid"
+  - "v1 pay-merchant inquiries inquiryno answer answercontentid"
+  - "answer answercontentid"
+  - "pay-merchant inquiries inquiryno answer answercontentid"
+  - "update-inquiry-answer-pay-merchant"
+  - "update"
+  - "pay"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-inquiry-answer-pay-merchant
 ---
 

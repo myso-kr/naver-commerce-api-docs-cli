@@ -10,8 +10,37 @@ category: 판매자정보
 tags:
   - get
   - seller
+keywords:
+  - "고객 문의 조회"
+  - "고객 문의"
+  - "문의 조회"
+  - "판매자정보"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "판매자"
+  - "셀러"
+  - "스마트스토어"
+  - "get"
+  - "/v1/pay-user/inquiries"
+  - "get /v1/pay-user/inquiries"
+  - "v1"
+  - "pay-user"
+  - "inquiries"
+  - "inquirie"
+  - "문의"
+  - "inquiry"
+  - "question"
+  - "answer"
+  - "답변"
+  - "v1 pay-user inquiries"
+  - "pay-user inquiries"
+  - "get-customer-inquiry-pay-user"
+  - "customer"
+  - "pay"
+  - "user"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-customer-inquiry-pay-user
 ---
 

@@ -8,8 +8,23 @@ tags:
   - auth
   - category
   - oauth2
+keywords:
+  - "oauth 2.0"
+  - "oauth"
+  - "인증"
+  - "auth"
+  - "oauth2"
+  - "token"
+  - "토큰"
+  - "authorization"
+  - "bearer"
+  - "category"
+  - "client_credentials"
+  - "카테고리"
+  - "index"
+  - "o-auth-2-0"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/o-auth-2-0
 ---
 

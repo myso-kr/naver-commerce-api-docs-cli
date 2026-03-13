@@ -10,8 +10,33 @@ category: 정산
 tags:
   - get
   - settle
+keywords:
+  - "건별 부가세 내역 조회"
+  - "건별 부가세"
+  - "부가세 내역"
+  - "내역 조회"
+  - "정산"
+  - "settle"
+  - "settlement"
+  - "vat"
+  - "부가세"
+  - "세금"
+  - "get"
+  - "/v1/pay-settle/vat/case"
+  - "get /v1/pay-settle/vat/case"
+  - "v1"
+  - "pay-settle"
+  - "case"
+  - "v1 pay-settle vat case"
+  - "vat case"
+  - "pay-settle vat case"
+  - "find-vat-declaration-by-case-pay-settle"
+  - "find"
+  - "declaration"
+  - "by"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/find-vat-declaration-by-case-pay-settle
 ---
 

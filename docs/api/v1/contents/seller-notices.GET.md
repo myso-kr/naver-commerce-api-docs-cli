@@ -10,8 +10,32 @@ category: 문의
 tags:
   - get
   - inquiry
+keywords:
+  - "공지사항 목록 조회"
+  - "공지사항 목록"
+  - "목록 조회"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "get"
+  - "/v1/contents/seller-notices"
+  - "get /v1/contents/seller-notices"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "seller-notices"
+  - "seller-notice"
+  - "v1 contents seller-notices"
+  - "contents seller-notices"
+  - "get-posts-contents"
+  - "posts"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-posts-contents
 ---
 

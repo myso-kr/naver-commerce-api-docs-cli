@@ -10,8 +10,34 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 추천 태그 검색 목록 조회"
+  - "v2 추천"
+  - "추천 태그"
+  - "태그 검색"
+  - "검색 목록"
+  - "목록 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/tags/recommend-tags"
+  - "get /v2/tags/recommend-tags"
+  - "v2"
+  - "tags"
+  - "태그"
+  - "tag"
+  - "recommend-tags"
+  - "recommend-tag"
+  - "v2 tags recommend-tags"
+  - "tags recommend-tags"
+  - "get-recommend-tags-product"
+  - "recommend"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-recommend-tags-product
 ---
 

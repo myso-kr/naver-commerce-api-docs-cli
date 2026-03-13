@@ -1,0 +1,346 @@
+---
+doc-id: "guide-sitemap"
+title: "커머스API 사이트맵"
+description: "커머스API 문서 구조와 주요 경로를 한 페이지에서 탐색할 수 있는 관계 인덱스입니다. 총 197개 문서(API 135, 카테고리 47, 가이드 2, 스키마 13)."
+type: guide
+category: 기타
+tags:
+  - reference
+  - sitemap
+  - tree
+keywords:
+  - "커머스api 사이트맵"
+  - "기타"
+  - "reference"
+  - "sitemap"
+  - "tree"
+  - "guide"
+  - "사이트맵"
+  - "map"
+  - "구조"
+  - "overview"
+  - "트리"
+  - "관계도"
+  - "current"
+  - "문서 구조"
+  - "문서 관계도"
+  - "tree view"
+  - "api tree"
+  - "category tree"
+  - "api데이터솔루션"
+  - "커머스솔루션"
+  - "문의"
+  - "물류"
+  - "인증"
+  - "주문"
+  - "정산"
+  - "판매자정보"
+  - "상품"
+status: stable
+updated: "2026-03-13"
+source: https://apicenter.commerce.naver.com/docs/commerce-api/current
+---
+
+# 커머스API 사이트맵
+
+총 197개 문서입니다. API 135개, 카테고리 47개, 가이드 2개, 스키마 13개를 포함합니다.
+
+## 카테고리 트리
+
+- 기타 (53)
+  - 분류 문서: [고객 데이터](../category/고객-데이터.md)
+  - 가이드: [커머스API](커머스api.md), [Commerce API - 전체 페이지 목록](_index.md)
+  - API 43개
+    - [전체 카테고리 조회](../api/v1/categories.GET.md) — GET `/v1/categories`
+    - [카테고리 조회](../api/v1/categories/{categoryId}.GET.md) — GET `/v1/categories/{categoryId}`
+    - [하위 카테고리 조회](../api/v1/categories/{categoryId}/sub-categories.GET.md) — GET `/v1/categories/{categoryId}/sub-categories`
+    - [카테고리별 표준형 옵션 조회](../api/v1/options/standard-options.GET.md) — GET `/v1/options/standard-options`
+    - [고객 문의 답변 등록](../api/v1/pay-merchant/inquiries/{inquiryNo}/answer.POST.md) — POST `/v1/pay-merchant/inquiries/{inquiryNo}/answer`
+    - [고객 문의 답변 수정](../api/v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}.PUT.md) — PUT `/v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}`
+    - [전체 속성값 단위 조회](../api/v1/product-attributes/attribute-value-units.GET.md) — GET `/v1/product-attributes/attribute-value-units`
+    - [카테고리별 속성값 조회](../api/v1/product-attributes/attribute-values.GET.md) — GET `/v1/product-attributes/attribute-values`
+    - ... 외 35개
+  - 스키마 1개
+- 문의 (13)
+  - 분류 문서: [고객 문의 답변 등록/수정](../category/고객-문의-답변-등록-수정.md)
+  - API 8개
+    - [상품 문의 목록 조회](../api/v1/contents/qnas.GET.md) — GET `/v1/contents/qnas`
+    - [상품 문의 답변 등록/수정](../api/v1/contents/qnas/{questionId}.PUT.md) — PUT `/v1/contents/qnas/{questionId}`
+    - [상품 문의 답변 템플릿 목록 조회](../api/v1/contents/qnas/templates.GET.md) — GET `/v1/contents/qnas/templates`
+    - [공지사항 등록](../api/v1/contents/seller-notices.POST.md) — POST `/v1/contents/seller-notices`
+    - [공지사항 목록 조회](../api/v1/contents/seller-notices.GET.md) — GET `/v1/contents/seller-notices`
+    - [공지사항 단건 조회](../api/v1/contents/seller-notices/{sellerNoticeId}.GET.md) — GET `/v1/contents/seller-notices/{sellerNoticeId}`
+    - [공지사항 삭제](../api/v1/contents/seller-notices/{sellerNoticeId}.DELETE.md) — DELETE `/v1/contents/seller-notices/{sellerNoticeId}`
+    - [공지사항 수정](../api/v1/contents/seller-notices/{sellerNoticeId}.PUT.md) — PUT `/v1/contents/seller-notices/{sellerNoticeId}`
+  - 스키마 2개
+- 물류 (9)
+  - 분류 문서: [반품](../category/반품.md)
+  - API 5개
+    - [물류사 연동 정보 조회](../api/v1/logistics/logistics-companies.GET.md) — GET `/v1/logistics/logistics-companies`
+    - [판매자 창고 정보 조회](../api/v1/logistics/outbound-locations.GET.md) — GET `/v1/logistics/outbound-locations`
+    - [SKU 조회 API](../api/v1/logistics/products/sellers/me/skus/{nsId}.GET.md) — GET `/v1/logistics/products/sellers/me/skus/{nsId}`
+    - [SKU 연결상품 조회 API](../api/v1/logistics/products/sellers/me/skus/{nsId}/product-mappings.GET.md) — GET `/v1/logistics/products/sellers/me/skus/{nsId}/product-mappings`
+    - [SKU 목록 조회 API](../api/v1/logistics/products/sellers/me/skus/query-paged-list.POST.md) — POST `/v1/logistics/products/sellers/me/skus/query-paged-list`
+  - 스키마 2개
+- 상품 (38)
+  - 분류 문서: [그룹상품](../category/그룹상품.md)
+  - API 15개
+    - [상품정보제공고시 상품군 목록 조회](../api/v1/products-for-provided-notice.GET.md) — GET `/v1/products-for-provided-notice`
+    - [상품정보제공고시 상품군 단건 조회](../api/v1/products-for-provided-notice/{productInfoProvidedNoticeType}.GET.md) — GET `/v1/products-for-provided-notice/{productInfoProvidedNoticeType}`
+    - [채널 상품 공지사항 적용](../api/v1/products/channel-products/notice/apply.PUT.md) — PUT `/v1/products/channel-products/notice/apply`
+    - [판매 상태 변경](../api/v1/products/origin-products/{originProductNo}/change-status.PUT.md) — PUT `/v1/products/origin-products/{originProductNo}/change-status`
+    - [상품 옵션 재고 변경](../api/v1/products/origin-products/{originProductNo}/option-stock.PUT.md) — PUT `/v1/products/origin-products/{originProductNo}/option-stock`
+    - [상품 벌크 업데이트](../api/v1/products/origin-products/bulk-update.PUT.md) — PUT `/v1/products/origin-products/bulk-update`
+    - [멀티 상품 변경](../api/v1/products/origin-products/multi-update.PATCH.md) — PATCH `/v1/products/origin-products/multi-update`
+    - [상품 목록 조회](../api/v1/products/search.POST.md) — POST `/v1/products/search`
+    - ... 외 7개
+  - 스키마 5개
+- 인증 (2)
+  - 분류 문서: [OAuth 2.0](../category/o-auth-2-0.md)
+  - API 1개
+    - [인증 토큰 발급 요청](../api/v1/oauth2/token.POST.md) — POST `/v1/oauth2/token`
+- 정산 (7)
+  - 분류 문서: [부가세 내역](../category/부가세-내역.md)
+  - API 5개
+    - [건별 정산 내역 조회](../api/v1/pay-settle/settle/case.GET.md) — GET `/v1/pay-settle/settle/case`
+    - [수수료 상세 내역 조회](../api/v1/pay-settle/settle/commission-details.GET.md) — GET `/v1/pay-settle/settle/commission-details`
+    - [일별 정산 내역 조회](../api/v1/pay-settle/settle/daily.GET.md) — GET `/v1/pay-settle/settle/daily`
+    - [건별 부가세 내역 조회](../api/v1/pay-settle/vat/case.GET.md) — GET `/v1/pay-settle/vat/case`
+    - [일별 부가세 내역 조회](../api/v1/pay-settle/vat/daily.GET.md) — GET `/v1/pay-settle/vat/daily`
+- 주문 (27)
+  - 분류 문서: [교환](../category/교환.md)
+  - API 20개
+    - [상품 주문 목록 조회](../api/v1/pay-order/seller/orders/{orderId}/product-order-ids.GET.md) — GET `/v1/pay-order/seller/orders/{orderId}/product-order-ids`
+    - [조건형 상품 주문 상세 내역 조회](../api/v1/pay-order/seller/product-orders.GET.md) — GET `/v1/pay-order/seller/product-orders`
+    - [취소 요청 승인](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/approve.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/approve`
+    - [취소 요청](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/request.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/request`
+    - [교환 수거 완료](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/collect/approve.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/collect/approve`
+    - [교환 재배송 처리](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/dispatch.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/dispatch`
+    - [교환 보류](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback`
+    - [교환 보류 해제](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback/release.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback/release`
+    - ... 외 12개
+  - 스키마 3개
+- 커머스솔루션 (9)
+  - 분류 문서: [비즈월렛 결제 내역 조회](../category/비즈월렛-결제-내역-조회.md)
+  - API 8개
+    - [외부 개발사 자체 결제 내역 전송](../api/v1/commerce-solutions/external-transactions.POST.md) — POST `/v1/commerce-solutions/external-transactions`
+    - [판매자 인증 JWE 해석 API](../api/v1/commerce-solutions/seller-info-by-token.GET.md) — GET `/v1/commerce-solutions/seller-info-by-token`
+    - [사용 상태 조회](../api/v1/commerce-solutions/subscriptions/{accountUid}.GET.md) — GET `/v1/commerce-solutions/subscriptions/{accountUid}`
+    - [사용 시작 거절](../api/v1/commerce-solutions/subscriptions/{accountUid}/reject.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/{accountUid}/reject`
+    - [사용 중지](../api/v1/commerce-solutions/subscriptions/{accountUid}/unsubscription.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/{accountUid}/unsubscription`
+    - [사용 시작 승인](../api/v1/commerce-solutions/subscriptions/approve.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/approve`
+    - [사용 해지 승인](../api/v1/commerce-solutions/subscriptions/unsubscription/approve.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/unsubscription/approve`
+    - [비즈월렛 결제 내역 조회](../api/v1/commerce-solutions/transactions.GET.md) — GET `/v1/commerce-solutions/transactions`
+- 판매자정보 (12)
+  - 분류 문서: [판매자](../category/판매자.md)
+  - API 7개
+    - [고객 문의 조회](../api/v1/pay-user/inquiries.GET.md) — GET `/v1/pay-user/inquiries`
+    - [계정 정보 조회](../api/v1/seller/account.GET.md) — GET `/v1/seller/account`
+    - [주소록 목록 조회](../api/v1/seller/addressbooks-for-page.GET.md) — GET `/v1/seller/addressbooks-for-page`
+    - [주소록 단건 조회](../api/v1/seller/addressbooks/{addressBookNo}.GET.md) — GET `/v1/seller/addressbooks/{addressBookNo}`
+    - [계정으로 채널 정보 조회](../api/v1/seller/channels.GET.md) — GET `/v1/seller/channels`
+    - [오늘출발 설정 정보 조회](../api/v1/seller/this-day-dispatch.GET.md) — GET `/v1/seller/this-day-dispatch`
+    - [오늘출발 정보 설정](../api/v1/seller/this-day-dispatch.POST.md) — POST `/v1/seller/this-day-dispatch`
+- API데이터솔루션 (27)
+  - 분류 문서: [마케팅 분석](../category/마케팅-분석.md)
+  - API 23개
+    - [전체 채널 일별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/all/daily.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/all/daily`
+    - [전체 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/all/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/all/detail`
+    - [사용자 정의 채널 상세 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/custom/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/custom/detail`
+    - [사용자 정의 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/custom/simple.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/custom/simple`
+    - [시간대별 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/detail`
+    - [시간대별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/simple.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/simple`
+    - [검색 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/search/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/search/detail`
+    - [검색 채널 키워드별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/search/keyword.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/search/keyword`
+    - ... 외 15개
+
+## API 경로 트리
+
+- v1
+  - bizdata-stats (20)
+    - [전체 채널 일별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/all/daily.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/all/daily`
+    - [전체 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/all/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/all/detail`
+    - [사용자 정의 채널 상세 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/custom/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/custom/detail`
+    - [사용자 정의 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/custom/simple.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/custom/simple`
+    - [시간대별 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/detail`
+    - [시간대별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/simple.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/hourly/simple`
+    - [검색 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/search/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/search/detail`
+    - [검색 채널 키워드별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/search/keyword.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/search/keyword`
+    - [웹사이트 채널 일별 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/website/daily.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/website/daily`
+    - [웹사이트 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/marketing/website/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/marketing/website/detail`
+    - [오늘 보고서 API](../api/v1/bizdata-stats/channels/{channelNo}/realtime/daily.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/realtime/daily`
+    - [배송 통계 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/delivery/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/delivery/detail`
+    - [판매 성과 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/hourly/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/hourly/detail`
+    - [상품/마케팅 채널 카테고리(소)별 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/product-marketing/category.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/product-marketing/category`
+    - [상품/마케팅 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/product-marketing/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/product-marketing/detail`
+    - [상품/검색 채널 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/product-search/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/product-search/detail`
+    - [상품/검색 채널 상품별 키워드 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/product-search/keyword-by-product.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/product-search/keyword-by-product`
+    - [상품 성과 API](../api/v1/bizdata-stats/channels/{channelNo}/sales/product/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/sales/product/detail`
+    - [페이지별 API](../api/v1/bizdata-stats/channels/{channelNo}/shopping/page/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/shopping/page/detail`
+    - [상품별 API](../api/v1/bizdata-stats/channels/{channelNo}/shopping/product/detail.GET.md) — GET `/v1/bizdata-stats/channels/{channelNo}/shopping/product/detail`
+  - categories (3)
+    - [전체 카테고리 조회](../api/v1/categories.GET.md) — GET `/v1/categories`
+    - [카테고리 조회](../api/v1/categories/{categoryId}.GET.md) — GET `/v1/categories/{categoryId}`
+    - [하위 카테고리 조회](../api/v1/categories/{categoryId}/sub-categories.GET.md) — GET `/v1/categories/{categoryId}/sub-categories`
+  - commerce-solutions (8)
+    - [외부 개발사 자체 결제 내역 전송](../api/v1/commerce-solutions/external-transactions.POST.md) — POST `/v1/commerce-solutions/external-transactions`
+    - [판매자 인증 JWE 해석 API](../api/v1/commerce-solutions/seller-info-by-token.GET.md) — GET `/v1/commerce-solutions/seller-info-by-token`
+    - [사용 상태 조회](../api/v1/commerce-solutions/subscriptions/{accountUid}.GET.md) — GET `/v1/commerce-solutions/subscriptions/{accountUid}`
+    - [사용 시작 거절](../api/v1/commerce-solutions/subscriptions/{accountUid}/reject.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/{accountUid}/reject`
+    - [사용 중지](../api/v1/commerce-solutions/subscriptions/{accountUid}/unsubscription.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/{accountUid}/unsubscription`
+    - [사용 시작 승인](../api/v1/commerce-solutions/subscriptions/approve.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/approve`
+    - [사용 해지 승인](../api/v1/commerce-solutions/subscriptions/unsubscription/approve.PUT.md) — PUT `/v1/commerce-solutions/subscriptions/unsubscription/approve`
+    - [비즈월렛 결제 내역 조회](../api/v1/commerce-solutions/transactions.GET.md) — GET `/v1/commerce-solutions/transactions`
+  - contents (8)
+    - [상품 문의 목록 조회](../api/v1/contents/qnas.GET.md) — GET `/v1/contents/qnas`
+    - [상품 문의 답변 등록/수정](../api/v1/contents/qnas/{questionId}.PUT.md) — PUT `/v1/contents/qnas/{questionId}`
+    - [상품 문의 답변 템플릿 목록 조회](../api/v1/contents/qnas/templates.GET.md) — GET `/v1/contents/qnas/templates`
+    - [공지사항 등록](../api/v1/contents/seller-notices.POST.md) — POST `/v1/contents/seller-notices`
+    - [공지사항 목록 조회](../api/v1/contents/seller-notices.GET.md) — GET `/v1/contents/seller-notices`
+    - [공지사항 단건 조회](../api/v1/contents/seller-notices/{sellerNoticeId}.GET.md) — GET `/v1/contents/seller-notices/{sellerNoticeId}`
+    - [공지사항 삭제](../api/v1/contents/seller-notices/{sellerNoticeId}.DELETE.md) — DELETE `/v1/contents/seller-notices/{sellerNoticeId}`
+    - [공지사항 수정](../api/v1/contents/seller-notices/{sellerNoticeId}.PUT.md) — PUT `/v1/contents/seller-notices/{sellerNoticeId}`
+  - customer-data (3)
+    - [고객 현황(계정) API](../api/v1/customer-data/customer-status/account/statistics.GET.md) — GET `/v1/customer-data/customer-status/account/statistics`
+    - [고객 현황(채널) API](../api/v1/customer-data/customer-status/channels/{channelNo}/statistics.GET.md) — GET `/v1/customer-data/customer-status/channels/{channelNo}/statistics`
+    - [재구매 통계 API](../api/v1/customer-data/repurchase/account/statistics.GET.md) — GET `/v1/customer-data/repurchase/account/statistics`
+  - logistics (5)
+    - [물류사 연동 정보 조회](../api/v1/logistics/logistics-companies.GET.md) — GET `/v1/logistics/logistics-companies`
+    - [판매자 창고 정보 조회](../api/v1/logistics/outbound-locations.GET.md) — GET `/v1/logistics/outbound-locations`
+    - [SKU 조회 API](../api/v1/logistics/products/sellers/me/skus/{nsId}.GET.md) — GET `/v1/logistics/products/sellers/me/skus/{nsId}`
+    - [SKU 연결상품 조회 API](../api/v1/logistics/products/sellers/me/skus/{nsId}/product-mappings.GET.md) — GET `/v1/logistics/products/sellers/me/skus/{nsId}/product-mappings`
+    - [SKU 목록 조회 API](../api/v1/logistics/products/sellers/me/skus/query-paged-list.POST.md) — POST `/v1/logistics/products/sellers/me/skus/query-paged-list`
+  - oauth2 (1)
+    - [인증 토큰 발급 요청](../api/v1/oauth2/token.POST.md) — POST `/v1/oauth2/token`
+  - options (1)
+    - [카테고리별 표준형 옵션 조회](../api/v1/options/standard-options.GET.md) — GET `/v1/options/standard-options`
+  - pay-merchant (2)
+    - [고객 문의 답변 등록](../api/v1/pay-merchant/inquiries/{inquiryNo}/answer.POST.md) — POST `/v1/pay-merchant/inquiries/{inquiryNo}/answer`
+    - [고객 문의 답변 수정](../api/v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}.PUT.md) — PUT `/v1/pay-merchant/inquiries/{inquiryNo}/answer/{answerContentId}`
+  - pay-order (20)
+    - [상품 주문 목록 조회](../api/v1/pay-order/seller/orders/{orderId}/product-order-ids.GET.md) — GET `/v1/pay-order/seller/orders/{orderId}/product-order-ids`
+    - [조건형 상품 주문 상세 내역 조회](../api/v1/pay-order/seller/product-orders.GET.md) — GET `/v1/pay-order/seller/product-orders`
+    - [취소 요청 승인](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/approve.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/approve`
+    - [취소 요청](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/request.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/cancel/request`
+    - [교환 수거 완료](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/collect/approve.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/collect/approve`
+    - [교환 재배송 처리](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/dispatch.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/dispatch`
+    - [교환 보류](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback`
+    - [교환 보류 해제](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback/release.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/holdback/release`
+    - [교환 거부(철회)](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/reject.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/exchange/reject`
+    - [반품 승인](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/approve.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/approve`
+    - [반품 보류](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/holdback.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/holdback`
+    - [반품 보류 해제](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/holdback/release.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/holdback/release`
+    - [반품 거부(철회)](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/reject.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/reject`
+    - [반품 요청](../api/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/request.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/claim/return/request`
+    - [발송 지연 처리](../api/v1/pay-order/seller/product-orders/{productOrderId}/delay.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/delay`
+    - [배송 희망일 변경 처리](../api/v1/pay-order/seller/product-orders/{productOrderId}/hope-delivery/change.POST.md) — POST `/v1/pay-order/seller/product-orders/{productOrderId}/hope-delivery/change`
+    - [발주 확인 처리](../api/v1/pay-order/seller/product-orders/confirm.POST.md) — POST `/v1/pay-order/seller/product-orders/confirm`
+    - [발송 처리](../api/v1/pay-order/seller/product-orders/dispatch.POST.md) — POST `/v1/pay-order/seller/product-orders/dispatch`
+    - [변경 상품 주문 내역 조회](../api/v1/pay-order/seller/product-orders/last-changed-statuses.GET.md) — GET `/v1/pay-order/seller/product-orders/last-changed-statuses`
+    - [상품 주문 상세 내역 조회](../api/v1/pay-order/seller/product-orders/query.POST.md) — POST `/v1/pay-order/seller/product-orders/query`
+  - pay-settle (5)
+    - [건별 정산 내역 조회](../api/v1/pay-settle/settle/case.GET.md) — GET `/v1/pay-settle/settle/case`
+    - [수수료 상세 내역 조회](../api/v1/pay-settle/settle/commission-details.GET.md) — GET `/v1/pay-settle/settle/commission-details`
+    - [일별 정산 내역 조회](../api/v1/pay-settle/settle/daily.GET.md) — GET `/v1/pay-settle/settle/daily`
+    - [건별 부가세 내역 조회](../api/v1/pay-settle/vat/case.GET.md) — GET `/v1/pay-settle/vat/case`
+    - [일별 부가세 내역 조회](../api/v1/pay-settle/vat/daily.GET.md) — GET `/v1/pay-settle/vat/daily`
+  - pay-user (1)
+    - [고객 문의 조회](../api/v1/pay-user/inquiries.GET.md) — GET `/v1/pay-user/inquiries`
+  - product-attributes (3)
+    - [전체 속성값 단위 조회](../api/v1/product-attributes/attribute-value-units.GET.md) — GET `/v1/product-attributes/attribute-value-units`
+    - [카테고리별 속성값 조회](../api/v1/product-attributes/attribute-values.GET.md) — GET `/v1/product-attributes/attribute-values`
+    - [카테고리별 속성 조회](../api/v1/product-attributes/attributes.GET.md) — GET `/v1/product-attributes/attributes`
+  - product-brands (1)
+    - [브랜드 조회](../api/v1/product-brands.GET.md) — GET `/v1/product-brands`
+  - product-delivery-info (8)
+    - [묶음배송 그룹 다건 조회](../api/v1/product-delivery-info/bundle-groups.GET.md) — GET `/v1/product-delivery-info/bundle-groups`
+    - [묶음배송 그룹 등록](../api/v1/product-delivery-info/bundle-groups.POST.md) — POST `/v1/product-delivery-info/bundle-groups`
+    - [묶음배송 그룹 단건 조회](../api/v1/product-delivery-info/bundle-groups/{deliveryBundleGroupId}.GET.md) — GET `/v1/product-delivery-info/bundle-groups/{deliveryBundleGroupId}`
+    - [묶음배송 그룹 수정](../api/v1/product-delivery-info/bundle-groups/{deliveryBundleGroupId}.PUT.md) — PUT `/v1/product-delivery-info/bundle-groups/{deliveryBundleGroupId}`
+    - [희망일배송 그룹 다건 조회](../api/v1/product-delivery-info/hope-delivery-groups.GET.md) — GET `/v1/product-delivery-info/hope-delivery-groups`
+    - [희망일배송 그룹 등록](../api/v1/product-delivery-info/hope-delivery-groups.POST.md) — POST `/v1/product-delivery-info/hope-delivery-groups`
+    - [희망일배송 그룹 단건 조회](../api/v1/product-delivery-info/hope-delivery-groups/{hopeDeliveryGroupId}.GET.md) — GET `/v1/product-delivery-info/hope-delivery-groups/{hopeDeliveryGroupId}`
+    - [희망일배송 그룹 수정](../api/v1/product-delivery-info/hope-delivery-groups/{hopeDeliveryGroupId}.PUT.md) — PUT `/v1/product-delivery-info/hope-delivery-groups/{hopeDeliveryGroupId}`
+  - product-fashion-models (4)
+    - [전체 패션모델 조회](../api/v1/product-fashion-models.GET.md) — GET `/v1/product-fashion-models`
+    - [패션모델 저장](../api/v1/product-fashion-models.POST.md) — POST `/v1/product-fashion-models`
+    - [패션모델 삭제](../api/v1/product-fashion-models/{fashionModelId}.DELETE.md) — DELETE `/v1/product-fashion-models/{fashionModelId}`
+    - [패션모델 수정](../api/v1/product-fashion-models/{fashionModelId}.PUT.md) — PUT `/v1/product-fashion-models/{fashionModelId}`
+  - product-images (1)
+    - [상품 이미지 다건 등록](../api/v1/product-images/upload.POST.md) — POST `/v1/product-images/upload`
+  - product-inspections (2)
+    - [수정 요청 상품에 대해 복원 요청](../api/v1/product-inspections/channel-product/{channelProductNo}/restore.PUT.md) — PUT `/v1/product-inspections/channel-product/{channelProductNo}/restore`
+    - [수정 요청 상품 목록을 조회](../api/v1/product-inspections/channel-products.GET.md) — GET `/v1/product-inspections/channel-products`
+  - product-manufacturers (1)
+    - [제조사 조회](../api/v1/product-manufacturers.GET.md) — GET `/v1/product-manufacturers`
+  - product-models (2)
+    - [카탈로그 조회](../api/v1/product-models.GET.md) — GET `/v1/product-models`
+    - [카탈로그 단건 조회](../api/v1/product-models/{id}.GET.md) — GET `/v1/product-models/{id}`
+  - product-origin-areas (3)
+    - [원산지 코드 정보 전체 조회](../api/v1/product-origin-areas.GET.md) — GET `/v1/product-origin-areas`
+    - [원산지 코드 정보 다건 조회](../api/v1/product-origin-areas/query.GET.md) — GET `/v1/product-origin-areas/query`
+    - [하위 원산지 코드 정보 다건 조회](../api/v1/product-origin-areas/sub-origin-areas.GET.md) — GET `/v1/product-origin-areas/sub-origin-areas`
+  - product-sizes (2)
+    - [전체 사이즈 타입 조회](../api/v1/product-sizes.GET.md) — GET `/v1/product-sizes`
+    - [사이즈 타입 조회](../api/v1/product-sizes/{sizeTypeId}.GET.md) — GET `/v1/product-sizes/{sizeTypeId}`
+  - products (6)
+    - [채널 상품 공지사항 적용](../api/v1/products/channel-products/notice/apply.PUT.md) — PUT `/v1/products/channel-products/notice/apply`
+    - [판매 상태 변경](../api/v1/products/origin-products/{originProductNo}/change-status.PUT.md) — PUT `/v1/products/origin-products/{originProductNo}/change-status`
+    - [상품 옵션 재고 변경](../api/v1/products/origin-products/{originProductNo}/option-stock.PUT.md) — PUT `/v1/products/origin-products/{originProductNo}/option-stock`
+    - [상품 벌크 업데이트](../api/v1/products/origin-products/bulk-update.PUT.md) — PUT `/v1/products/origin-products/bulk-update`
+    - [멀티 상품 변경](../api/v1/products/origin-products/multi-update.PATCH.md) — PATCH `/v1/products/origin-products/multi-update`
+    - [상품 목록 조회](../api/v1/products/search.POST.md) — POST `/v1/products/search`
+  - products-for-provided-notice (2)
+    - [상품정보제공고시 상품군 목록 조회](../api/v1/products-for-provided-notice.GET.md) — GET `/v1/products-for-provided-notice`
+    - [상품정보제공고시 상품군 단건 조회](../api/v1/products-for-provided-notice/{productInfoProvidedNoticeType}.GET.md) — GET `/v1/products-for-provided-notice/{productInfoProvidedNoticeType}`
+  - seller (6)
+    - [계정 정보 조회](../api/v1/seller/account.GET.md) — GET `/v1/seller/account`
+    - [주소록 목록 조회](../api/v1/seller/addressbooks-for-page.GET.md) — GET `/v1/seller/addressbooks-for-page`
+    - [주소록 단건 조회](../api/v1/seller/addressbooks/{addressBookNo}.GET.md) — GET `/v1/seller/addressbooks/{addressBookNo}`
+    - [계정으로 채널 정보 조회](../api/v1/seller/channels.GET.md) — GET `/v1/seller/channels`
+    - [오늘출발 설정 정보 조회](../api/v1/seller/this-day-dispatch.GET.md) — GET `/v1/seller/this-day-dispatch`
+    - [오늘출발 정보 설정](../api/v1/seller/this-day-dispatch.POST.md) — POST `/v1/seller/this-day-dispatch`
+- v2
+  - product-delivery-info (1)
+    - [(v2) 반품 택배사 다건 조회](../api/v2/product-delivery-info/return-delivery-companies.GET.md) — GET `/v2/product-delivery-info/return-delivery-companies`
+  - products (7)
+    - [(v2) 상품 등록](../api/v2/products.POST.md) — POST `/v2/products`
+    - [(v2) 채널 상품 삭제](../api/v2/products/channel-products/{channelProductNo}.DELETE.md) — DELETE `/v2/products/channel-products/{channelProductNo}`
+    - [(v2) 채널 상품 수정](../api/v2/products/channel-products/{channelProductNo}.PUT.md) — PUT `/v2/products/channel-products/{channelProductNo}`
+    - [(v2) 채널 상품 조회](../api/v2/products/channel-products/{channelProductNo}.GET.md) — GET `/v2/products/channel-products/{channelProductNo}`
+    - [(v2) 원상품 삭제](../api/v2/products/origin-products/{originProductNo}.DELETE.md) — DELETE `/v2/products/origin-products/{originProductNo}`
+    - [(v2) 원상품 수정](../api/v2/products/origin-products/{originProductNo}.PUT.md) — PUT `/v2/products/origin-products/{originProductNo}`
+    - [(v2) 원상품 조회](../api/v2/products/origin-products/{originProductNo}.GET.md) — GET `/v2/products/origin-products/{originProductNo}`
+  - standard-group-products (6)
+    - [(v2) 그룹상품 등록](../api/v2/standard-group-products.POST.md) — POST `/v2/standard-group-products`
+    - [(v2) 그룹상품 삭제](../api/v2/standard-group-products/{groupProductNo}.DELETE.md) — DELETE `/v2/standard-group-products/{groupProductNo}`
+    - [(v2) 그룹상품 수정](../api/v2/standard-group-products/{groupProductNo}.PUT.md) — PUT `/v2/standard-group-products/{groupProductNo}`
+    - [(v2) 그룹상품 조회](../api/v2/standard-group-products/{groupProductNo}.GET.md) — GET `/v2/standard-group-products/{groupProductNo}`
+    - [(v2) 그룹상품 요청 결과 조회](../api/v2/standard-group-products/status.GET.md) — GET `/v2/standard-group-products/status`
+    - [(v2) 상품 상세 정보 임시 저장](../api/v2/standard-group-products/temp-detail-content.POST.md) — POST `/v2/standard-group-products/temp-detail-content`
+  - standard-purchase-option-guides (1)
+    - [(v2) 판매 옵션 정보 조회](../api/v2/standard-purchase-option-guides.GET.md) — GET `/v2/standard-purchase-option-guides`
+  - tags (2)
+    - [(v2) 추천 태그 검색 목록 조회](../api/v2/tags/recommend-tags.GET.md) — GET `/v2/tags/recommend-tags`
+    - [(v2) 제한 태그 여부 조회](../api/v2/tags/restricted-tags.GET.md) — GET `/v2/tags/restricted-tags`
+
+## 가이드
+
+- [Commerce API - 전체 페이지 목록](_index.md)
+- [커머스API](커머스api.md)
+
+## 스키마
+
+- [고객 문의 내용 구조체](../schema/고객-문의-내용-구조체.md)
+- [공지사항 내용 구조체](../schema/공지사항-내용-구조체.md)
+- [묶음배송 그룹 정보 구조체](../schema/묶음배송-그룹-정보-구조체.md)
+- [반품 택배사 정보 구조체](../schema/반품-택배사-정보-구조체.md)
+- [변경 상품 주문 정보 구조체](../schema/변경-상품-주문-정보-구조체.md)
+- [사용 상태 정보 구조체](../schema/사용-상태-정보-구조체.md)
+- [상품 문의 내용 구조체](../schema/상품-문의-내용-구조체.md)
+- [상품 주문 정보 구조체](../schema/상품-주문-정보-구조체.md)
+- [쇼핑윈도 채널상품 정보 구조체](../schema/쇼핑윈도-채널상품-정보-구조체.md)
+- [스마트스토어 채널상품 정보 구조체](../schema/스마트스토어-채널상품-정보-구조체.md)
+- [원상품 정보 구조체](../schema/원상품-정보-구조체.md)
+- [주문-클레임 처리 반환 구조체](../schema/주문-클레임-처리-반환-구조체.md)
+- [희망일배송 그룹 정보 구조체](../schema/희망일배송-그룹-정보-구조체.md)

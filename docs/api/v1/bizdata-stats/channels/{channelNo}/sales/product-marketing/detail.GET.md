@@ -10,8 +10,45 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "상품/마케팅 채널 api"
+  - "상품 마케팅 채널 api"
+  - "상품 마케팅"
+  - "마케팅 채널"
+  - "채널 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/sales/product-marketing/detail"
+  - "get /v1/bizdata-stats/channels/{channelno}/sales/product-marketing/detail"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "sales"
+  - "sale"
+  - "product-marketing"
+  - "detail"
+  - "v1 bizdata-stats channels channelno sales product-marketing detail"
+  - "product-marketing detail"
+  - "bizdata-stats channels channelno sales product-marketing detail"
+  - "product-marketing-report-using-get-bizdata-stats"
+  - "product"
+  - "products"
+  - "상품"
+  - "marketing"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/product-marketing-report-using-get-bizdata-stats
 ---
 

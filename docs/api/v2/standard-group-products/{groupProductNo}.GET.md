@@ -10,8 +10,29 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "v2 그룹상품 조회"
+  - "v2 그룹상품"
+  - "그룹상품 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v2/standard-group-products/{groupproductno}"
+  - "get /v2/standard-group-products/{groupproductno}"
+  - "v2"
+  - "standard-group-products"
+  - "standard-group-product"
+  - "groupproductno"
+  - "v2 standard-group-products groupproductno"
+  - "standard-group-products groupproductno"
+  - "read-product-product"
+  - "read"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/read-product-product
 ---
 

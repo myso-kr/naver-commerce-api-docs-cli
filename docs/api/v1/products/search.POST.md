@@ -10,8 +10,32 @@ category: 상품
 tags:
   - post
   - product
+keywords:
+  - "상품 목록 조회"
+  - "상품 목록"
+  - "목록 조회"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "post"
+  - "/v1/products/search"
+  - "post /v1/products/search"
+  - "v1"
+  - "search"
+  - "조회"
+  - "검색"
+  - "목록"
+  - "find"
+  - "list"
+  - "v1 products search"
+  - "products search"
+  - "search-product"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/search-product
 ---
 

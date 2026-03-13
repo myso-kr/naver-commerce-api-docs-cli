@@ -10,8 +10,33 @@ category: 상품
 tags:
   - get
   - product
+keywords:
+  - "v2 채널 상품 조회"
+  - "v2 채널"
+  - "채널 상품"
+  - "상품 조회"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "get"
+  - "/v2/products/channel-products/{channelproductno}"
+  - "get /v2/products/channel-products/{channelproductno}"
+  - "v2"
+  - "channel-products"
+  - "channel-product"
+  - "channelproductno"
+  - "v2 products channel-products channelproductno"
+  - "channel-products channelproductno"
+  - "products channel-products channelproductno"
+  - "read-channel-product-1-product"
+  - "read"
+  - "channel"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/read-channel-product-1-product
 ---
 

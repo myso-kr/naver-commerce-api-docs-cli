@@ -11,8 +11,36 @@ tags:
   - auth
   - oauth2
   - post
+keywords:
+  - "인증 토큰 발급 요청"
+  - "인증 토큰"
+  - "토큰 발급"
+  - "발급 요청"
+  - "인증"
+  - "auth"
+  - "oauth"
+  - "oauth2"
+  - "token"
+  - "토큰"
+  - "authorization"
+  - "bearer"
+  - "post"
+  - "client_credentials"
+  - "/v1/oauth2/token"
+  - "post /v1/oauth2/token"
+  - "v1"
+  - "v1 oauth2 token"
+  - "oauth2 token"
+  - "exchange-sellers-auth"
+  - "exchange"
+  - "sellers"
+  - "판매자"
+  - "seller"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/exchange-sellers-auth
 ---
 

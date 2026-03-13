@@ -10,8 +10,32 @@ category: 문의
 tags:
   - delete
   - inquiry
+keywords:
+  - "공지사항 삭제"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "delete"
+  - "/v1/contents/seller-notices/{sellernoticeid}"
+  - "delete /v1/contents/seller-notices/{sellernoticeid}"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "seller-notices"
+  - "seller-notice"
+  - "sellernoticeid"
+  - "v1 contents seller-notices sellernoticeid"
+  - "seller-notices sellernoticeid"
+  - "contents seller-notices sellernoticeid"
+  - "delete-post-contents"
+  - "post"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/delete-post-contents
 ---
 

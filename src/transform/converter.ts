@@ -17,7 +17,7 @@ const METHOD_BLOCK_RE =
 const PLAIN_METHOD_BLOCK_RE =
   /(?:^|\n)(GET|POST|PUT|DELETE|PATCH)\s*\n\s*\n## (\/[^\n]+?)\s*(?:\n|$)/m;
 
-const CATEGORY_LINK_RE = /\[## [📄🗃️]/u;
+const CATEGORY_LINK_RE = /\[\s*##\s+[📄🗃️]/u;
 
 // ── 페이지 타입 감지 ──────────────────────────────────────────────────────────
 

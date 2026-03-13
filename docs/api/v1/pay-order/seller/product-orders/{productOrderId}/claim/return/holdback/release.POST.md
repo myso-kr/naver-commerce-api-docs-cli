@@ -10,8 +10,42 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "반품 보류 해제"
+  - "반품 보류"
+  - "보류 해제"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/{productorderid}/claim/return/holdback/release"
+  - "post /v1/pay-order/seller/product-orders/{productorderid}/claim/return/holdback/release"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "productorderid"
+  - "claim"
+  - "return"
+  - "holdback"
+  - "release"
+  - "v1 pay-order seller product-orders productorderid claim return holdback release"
+  - "holdback release"
+  - "pay-order seller product-orders productorderid claim return holdback release"
+  - "seller-release-return-holdback-pay-order-seller"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-release-return-holdback-pay-order-seller
 ---
 

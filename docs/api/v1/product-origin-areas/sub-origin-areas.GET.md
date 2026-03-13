@@ -10,8 +10,36 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "하위 원산지 코드 정보 다건 조회"
+  - "하위 원산지"
+  - "원산지 코드"
+  - "코드 정보"
+  - "정보 다건"
+  - "다건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-origin-areas/sub-origin-areas"
+  - "get /v1/product-origin-areas/sub-origin-areas"
+  - "v1"
+  - "product-origin-areas"
+  - "product-origin-area"
+  - "sub-origin-areas"
+  - "sub-origin-area"
+  - "v1 product-origin-areas sub-origin-areas"
+  - "product-origin-areas sub-origin-areas"
+  - "get-sub-origin-area-list-product"
+  - "sub"
+  - "origin"
+  - "area"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-sub-origin-area-list-product
 ---
 

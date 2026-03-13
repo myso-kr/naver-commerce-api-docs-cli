@@ -10,8 +10,32 @@ category: 커머스솔루션
 tags:
   - commerce-solution
   - get
+keywords:
+  - "비즈월렛 결제 내역 조회"
+  - "비즈월렛 결제"
+  - "결제 내역"
+  - "내역 조회"
+  - "커머스솔루션"
+  - "commerce-solution"
+  - "subscription"
+  - "wallet"
+  - "transaction"
+  - "비즈월렛"
+  - "get"
+  - "/v1/commerce-solutions/transactions"
+  - "get /v1/commerce-solutions/transactions"
+  - "v1"
+  - "commerce-solutions"
+  - "transactions"
+  - "거래"
+  - "v1 commerce-solutions transactions"
+  - "commerce-solutions transactions"
+  - "get-transactions-merchant"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-transactions-merchant
 ---
 

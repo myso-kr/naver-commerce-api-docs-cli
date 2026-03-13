@@ -10,8 +10,30 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "전체 패션모델 조회"
+  - "전체 패션모델"
+  - "패션모델 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-fashion-models"
+  - "get /v1/product-fashion-models"
+  - "v1"
+  - "product-fashion-models"
+  - "product-fashion-model"
+  - "v1 product-fashion-models"
+  - "get-fashion-models-product"
+  - "fashion"
+  - "models"
+  - "모델"
+  - "model"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-fashion-models-product
 ---
 

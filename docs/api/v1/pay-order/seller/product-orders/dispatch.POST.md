@@ -10,8 +10,39 @@ category: 주문
 tags:
   - order
   - post
+keywords:
+  - "발송 처리"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "post"
+  - "/v1/pay-order/seller/product-orders/dispatch"
+  - "post /v1/pay-order/seller/product-orders/dispatch"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "dispatch"
+  - "v1 pay-order seller product-orders dispatch"
+  - "product-orders dispatch"
+  - "pay-order seller product-orders dispatch"
+  - "seller-dispatch-product-orders-pay-order-seller"
+  - "product"
+  - "products"
+  - "상품"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-dispatch-product-orders-pay-order-seller
 ---
 

@@ -10,8 +10,34 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "하위 카테고리 조회"
+  - "하위 카테고리"
+  - "카테고리 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/categories/{categoryid}/sub-categories"
+  - "get /v1/categories/{categoryid}/sub-categories"
+  - "v1"
+  - "categories"
+  - "categorie"
+  - "카테고리"
+  - "category"
+  - "categoryid"
+  - "sub-categories"
+  - "sub-categorie"
+  - "v1 categories categoryid sub-categories"
+  - "categoryid sub-categories"
+  - "categories categoryid sub-categories"
+  - "get-sub-category-product"
+  - "sub"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-sub-category-product
 ---
 

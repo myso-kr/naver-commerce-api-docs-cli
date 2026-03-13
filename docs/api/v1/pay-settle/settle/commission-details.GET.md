@@ -10,8 +10,34 @@ category: 정산
 tags:
   - get
   - settle
+keywords:
+  - "수수료 상세 내역 조회"
+  - "수수료 상세"
+  - "상세 내역"
+  - "내역 조회"
+  - "정산"
+  - "settle"
+  - "settlement"
+  - "vat"
+  - "부가세"
+  - "세금"
+  - "get"
+  - "/v1/pay-settle/settle/commission-details"
+  - "get /v1/pay-settle/settle/commission-details"
+  - "v1"
+  - "pay-settle"
+  - "commission-details"
+  - "commission-detail"
+  - "v1 pay-settle settle commission-details"
+  - "settle commission-details"
+  - "pay-settle settle commission-details"
+  - "find-commission-details-pay-settle"
+  - "find"
+  - "commission"
+  - "details"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/find-commission-details-pay-settle
 ---
 

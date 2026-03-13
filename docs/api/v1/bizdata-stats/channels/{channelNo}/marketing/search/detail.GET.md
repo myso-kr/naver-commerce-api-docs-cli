@@ -10,8 +10,43 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "검색 채널 api"
+  - "검색 채널"
+  - "채널 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/marketing/search/detail"
+  - "get /v1/bizdata-stats/channels/{channelno}/marketing/search/detail"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "marketing"
+  - "search"
+  - "조회"
+  - "검색"
+  - "목록"
+  - "find"
+  - "list"
+  - "detail"
+  - "v1 bizdata-stats channels channelno marketing search detail"
+  - "search detail"
+  - "bizdata-stats channels channelno marketing search detail"
+  - "search-channel-report-using-get-bizdata-stats"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/search-channel-report-using-get-bizdata-stats
 ---
 

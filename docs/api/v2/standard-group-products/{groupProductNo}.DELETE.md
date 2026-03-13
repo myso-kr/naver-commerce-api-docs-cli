@@ -10,8 +10,28 @@ category: 기타
 tags:
   - delete
   - reference
+keywords:
+  - "v2 그룹상품 삭제"
+  - "v2 그룹상품"
+  - "그룹상품 삭제"
+  - "기타"
+  - "reference"
+  - "delete"
+  - "guide"
+  - "/v2/standard-group-products/{groupproductno}"
+  - "delete /v2/standard-group-products/{groupproductno}"
+  - "v2"
+  - "standard-group-products"
+  - "standard-group-product"
+  - "groupproductno"
+  - "v2 standard-group-products groupproductno"
+  - "standard-group-products groupproductno"
+  - "delete-product-product"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/delete-product-product
 ---
 

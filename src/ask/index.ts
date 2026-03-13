@@ -25,6 +25,8 @@ interface SearchDoc {
   apiPath: string;
   category: string;
   tags: string[];
+  keywords: string[];
+  links: string[];
   source: string;
   body: string;
   normalized: {
@@ -33,6 +35,7 @@ interface SearchDoc {
     description: string;
     category: string;
     tags: string;
+    keywords: string;
     apiPath: string;
     body: string;
   };
@@ -43,6 +46,7 @@ interface QueryPlan {
   normalized: string;
   tokens: string[];
   expandedTokens: string[];
+  structureIntent: boolean;
   guideIntent: boolean;
   apiIntent: boolean;
   authIntent: boolean;
@@ -55,6 +59,12 @@ interface SearchMatch {
   score: number;
   matchedTerms: string[];
   excerpt: string;
+}
+
+interface WorkingMatch {
+  doc: SearchDoc;
+  score: number;
+  matchedTerms: Set<string>;
 }
 
 const STOPWORDS = new Set([
@@ -230,6 +240,7 @@ function buildMatchEvent(
   return {
     ...base,
     tags: match.doc.tags,
+    keywords: match.doc.keywords,
     description: match.doc.description || undefined,
     score: match.score,
     matched_terms: match.matchedTerms,
@@ -324,6 +335,15 @@ function buildQueryPlan(question: string): QueryPlan {
     expanded.add("가이드");
   }
 
+  if (/(사이트맵|sitemap|tree|트리|구조|관계도|맵|overview)/u.test(normalized)) {
+    expanded.add("사이트맵");
+    expanded.add("sitemap");
+    expanded.add("tree");
+    expanded.add("트리");
+    expanded.add("구조");
+    expanded.add("관계도");
+  }
+
   if (/(api|endpoint|엔드포인트|path|경로|method|메서드)/u.test(normalized)) {
     expanded.add("api");
     expanded.add("엔드포인트");
@@ -350,6 +370,7 @@ function buildQueryPlan(question: string): QueryPlan {
     normalized,
     tokens,
     expandedTokens: [...expanded],
+    structureIntent: /(사이트맵|sitemap|tree|트리|구조|관계도|맵|overview)/u.test(normalized),
     guideIntent: /(방법|가이드|어떻게|하려면|시작|설정)/u.test(normalized),
     apiIntent: /(api|endpoint|엔드포인트|path|경로|method|메서드|호출)/u.test(normalized),
     authIntent: /(인증|auth|oauth|oauth2|token|토큰|authorization|bearer|로그인)/u.test(normalized),
@@ -371,7 +392,9 @@ function loadDocs(docsRoot: string): SearchDoc[] {
       const category = asString(frontmatter["category"]);
       const apiPath = asString(frontmatter["path"]);
       const tags = toStringArray(frontmatter["tags"]);
+      const keywords = toStringArray(frontmatter["keywords"]);
       const relFile = path.relative(docsRoot, filePath).replace(/\\/g, "/");
+      const links = extractDocLinks(body, relFile);
 
       docs.push({
         filePath,
@@ -384,6 +407,8 @@ function loadDocs(docsRoot: string): SearchDoc[] {
         apiPath,
         category,
         tags,
+        keywords,
+        links,
         source: asString(frontmatter["source"]),
         body,
         normalized: {
@@ -392,6 +417,7 @@ function loadDocs(docsRoot: string): SearchDoc[] {
           description: normalizeSearchText(description),
           category: normalizeSearchText(category),
           tags: normalizeSearchText(tags.join(" ")),
+          keywords: normalizeSearchText(keywords.join(" ")),
           apiPath: normalizeSearchText(apiPath),
           body: normalizeSearchText(body),
         },
@@ -402,12 +428,26 @@ function loadDocs(docsRoot: string): SearchDoc[] {
 }
 
 function searchDocs(docs: SearchDoc[], plan: QueryPlan): SearchMatch[] {
-  const results: SearchMatch[] = [];
+  const working = new Map<string, WorkingMatch>();
   for (const doc of docs) {
     const match = scoreDoc(doc, plan);
-    if (match.score <= 0) continue;
-    results.push(match);
+    working.set(doc.relFile, {
+      doc,
+      score: match.score,
+      matchedTerms: new Set(match.matchedTerms),
+    });
   }
+
+  applyRelationBoosts(working, plan);
+
+  const results = [...working.values()]
+    .filter((match) => match.score > 0)
+    .map((match) => ({
+      doc: match.doc,
+      score: match.score,
+      matchedTerms: [...match.matchedTerms].sort(),
+      excerpt: pickExcerpt(match.doc, plan),
+    }));
 
   return results.sort((left, right) => {
     if (right.score !== left.score) return right.score - left.score;
@@ -423,6 +463,7 @@ function scoreDoc(doc: SearchDoc, plan: QueryPlan): SearchMatch {
 
   if (plan.normalized.length >= 4) {
     score += scoreContains(doc.normalized.title, plan.normalized, 30, matchedTerms);
+    score += scoreContains(doc.normalized.keywords, plan.normalized, 26, matchedTerms);
     score += scoreContains(doc.normalized.description, plan.normalized, 18, matchedTerms);
     score += scoreContains(doc.normalized.body, plan.normalized, 10, matchedTerms);
   }
@@ -438,6 +479,12 @@ function scoreDoc(doc: SearchDoc, plan: QueryPlan): SearchMatch {
   if (plan.guideIntent) {
     if (doc.type === "guide") score += 18;
     else if (doc.type === "api-endpoint") score += 8;
+  }
+  if (plan.structureIntent) {
+    if (doc.type === "guide") score += 22;
+    else if (doc.type === "category-index") score += 16;
+    if (/(사이트맵|구조|트리|관계도)/u.test(doc.title)) score += 20;
+    if (doc.relFile === "guide/sitemap.md") score += 48;
   }
   if (plan.apiIntent) {
     if (doc.type === "api-endpoint") score += 18;
@@ -469,6 +516,7 @@ function scoreDoc(doc: SearchDoc, plan: QueryPlan): SearchMatch {
   if (plan.productIntent && doc.category === "인증") score -= 16;
   if (doc.type === "category-index") score -= 8;
   if (doc.type === "schema") score -= 4;
+  if (plan.structureIntent && doc.type === "schema") score -= 16;
 
   return {
     doc,
@@ -486,6 +534,7 @@ function scoreToken(
 ): number {
   let score = 0;
   score += scoreContains(doc.normalized.title, token, Math.round(24 * factor), matchedTerms);
+  score += scoreContains(doc.normalized.keywords, token, Math.round(20 * factor), matchedTerms);
   score += scoreContains(doc.normalized.tags, token, Math.round(14 * factor), matchedTerms);
   score += scoreContains(doc.normalized.category, token, Math.round(12 * factor), matchedTerms);
   score += scoreContains(doc.normalized.apiPath, token, Math.round(12 * factor), matchedTerms);
@@ -506,7 +555,57 @@ function scoreContains(
   return weight;
 }
 
+function applyRelationBoosts(matches: Map<string, WorkingMatch>, plan: QueryPlan): void {
+  const sources = [...matches.values()]
+    .filter((match) => isRelationSource(match.doc) && match.score >= 18)
+    .sort((left, right) => right.score - left.score);
+
+  for (const source of sources) {
+    for (const link of source.doc.links) {
+      const target = matches.get(link);
+      if (!target || target.doc.relFile === source.doc.relFile) continue;
+      const boost = scoreRelationBoost(source, target, plan);
+      if (boost <= 0) continue;
+      target.score += boost;
+    }
+  }
+}
+
+function isRelationSource(doc: SearchDoc): boolean {
+  if (doc.links.length === 0) return false;
+  if (doc.type === "category-index") return true;
+  if (doc.type === "guide" && doc.links.length <= 24) return true;
+  return false;
+}
+
+function scoreRelationBoost(source: WorkingMatch, target: WorkingMatch, plan: QueryPlan): number {
+  let boost = 0;
+
+  if (source.doc.type === "category-index") boost += 8;
+  else if (source.doc.type === "guide") boost += 4;
+
+  if (target.doc.type === "api-endpoint") boost += 4;
+  else if (target.doc.type === "schema") boost += 1;
+
+  if (source.doc.category && source.doc.category === target.doc.category) boost += 4;
+  if (plan.apiIntent && target.doc.type === "api-endpoint") boost += 4;
+  if (plan.structureIntent && (target.doc.type === "guide" || target.doc.type === "category-index")) boost += 4;
+  if (plan.authIntent && target.doc.apiPath === "/v1/oauth2/token") boost += 10;
+  if (plan.productIntent && /^\/v\d+\/products(?:\/|$)/.test(target.doc.apiPath)) boost += 10;
+
+  boost += Math.min(source.doc.type === "category-index" ? 10 : 6, Math.round(source.score * 0.08));
+
+  if (target.score <= 0 && boost < 10) return 0;
+  return boost;
+}
+
 function typeRank(type: string, plan: QueryPlan): number {
+  if (plan.structureIntent) {
+    if (type === "guide") return 0;
+    if (type === "category-index") return 1;
+    if (type === "api-endpoint") return 2;
+    return 3;
+  }
   if (plan.guideIntent) {
     if (type === "guide") return 0;
     if (type === "api-endpoint") return 1;
@@ -533,6 +632,14 @@ function pickExcerpt(doc: SearchDoc, plan: QueryPlan): string {
 
   if (paragraphs.length === 0) {
     return cleanExcerpt(doc.description || doc.title);
+  }
+
+  if (plan.structureIntent && doc.type === "guide") {
+    if (doc.relFile === "guide/sitemap.md") {
+      return truncate(paragraphs[0], 220);
+    }
+    const preferred = paragraphs.find((paragraph) => /(사이트맵|구조|트리|관계도)/u.test(paragraph)) ?? paragraphs[0];
+    return truncate(preferred, 220);
   }
 
   let best = paragraphs[0];
@@ -605,6 +712,23 @@ function walkMd(dir: string): string[] {
     else if (entry.isFile() && entry.name.endsWith(".md")) results.push(fullPath);
   }
   return results.sort();
+}
+
+function extractDocLinks(body: string, relFile: string): string[] {
+  const links = new Set<string>();
+  const baseDir = path.posix.dirname(relFile);
+  for (const match of body.matchAll(/\[[^\]]+]\(([^)]+)\)/g)) {
+    const href = match[1]?.trim();
+    if (!href || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("#")) {
+      continue;
+    }
+    const cleanHref = href.split("#", 1)[0].replace(/\\/g, "/");
+    if (!cleanHref.endsWith(".md")) continue;
+    const resolved = path.posix.normalize(path.posix.join(baseDir, cleanHref));
+    if (!OUTPUT_DIR_NAMES.some((dir) => resolved.startsWith(`${dir}/`))) continue;
+    links.add(resolved);
+  }
+  return [...links];
 }
 
 function asString(value: unknown): string {

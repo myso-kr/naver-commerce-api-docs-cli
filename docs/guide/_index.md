@@ -6,8 +6,19 @@ type: guide
 category: 기타
 tags:
   - reference
+keywords:
+  - "commerce api - 전체 페이지 목록"
+  - "commerce api 전체 페이지 목록"
+  - "commerce api"
+  - "api 전체"
+  - "전체 페이지"
+  - "페이지 목록"
+  - "기타"
+  - "reference"
+  - "guide"
+  - "current"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current
 ---
 

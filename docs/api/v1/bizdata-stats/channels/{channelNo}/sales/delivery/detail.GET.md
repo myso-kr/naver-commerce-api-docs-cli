@@ -10,8 +10,42 @@ category: API데이터솔루션
 tags:
   - get
   - stats
+keywords:
+  - "배송 통계 api"
+  - "배송 통계"
+  - "통계 api"
+  - "api데이터솔루션"
+  - "stats"
+  - "bizdata"
+  - "analytics"
+  - "report"
+  - "통계"
+  - "분석"
+  - "리포트"
+  - "get"
+  - "/v1/bizdata-stats/channels/{channelno}/sales/delivery/detail"
+  - "get /v1/bizdata-stats/channels/{channelno}/sales/delivery/detail"
+  - "v1"
+  - "bizdata-stats"
+  - "bizdata-stat"
+  - "channels"
+  - "channel"
+  - "채널"
+  - "channelno"
+  - "sales"
+  - "sale"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "detail"
+  - "v1 bizdata-stats channels channelno sales delivery detail"
+  - "delivery detail"
+  - "bizdata-stats channels channelno sales delivery detail"
+  - "delivery-report-using-get-bizdata-stats"
+  - "using"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/delivery-report-using-get-bizdata-stats
 ---
 

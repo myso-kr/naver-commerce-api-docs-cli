@@ -82,6 +82,7 @@ export function run(opts: ApiLookupOpts): number {
       description: asString(fm["description"]),
       category: asString(fm["category"]),
       tags: toStringArray(fm["tags"]),
+      keywords: toStringArray(fm["keywords"]),
       source: asString(fm["source"]),
       body: includeBody ? doc.body : undefined,
     });
@@ -149,6 +150,7 @@ function matchesDoc(
     asString(fm["title"]),
     docPath,
     asString(fm["description"]),
+    toStringArray(fm["keywords"]).join(" "),
     doc.body,
   ].map((value) => value.toLowerCase());
 

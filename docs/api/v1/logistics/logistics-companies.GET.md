@@ -10,8 +10,31 @@ category: 물류
 tags:
   - get
   - logistics
+keywords:
+  - "물류사 연동 정보 조회"
+  - "물류사 연동"
+  - "연동 정보"
+  - "정보 조회"
+  - "물류"
+  - "logistics"
+  - "delivery"
+  - "sku"
+  - "nfa"
+  - "배송"
+  - "택배"
+  - "get"
+  - "/v1/logistics/logistics-companies"
+  - "get /v1/logistics/logistics-companies"
+  - "v1"
+  - "logistic"
+  - "logistics-companies"
+  - "logistics-companie"
+  - "v1 logistics logistics-companies"
+  - "logistics logistics-companies"
+  - "get-logistics-companies-nfa"
+  - "companies"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-logistics-companies-nfa
 ---
 

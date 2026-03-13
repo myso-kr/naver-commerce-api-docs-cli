@@ -10,8 +10,34 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "v2 상품 상세 정보 임시 저장"
+  - "v2 상품"
+  - "상품 상세"
+  - "상세 정보"
+  - "정보 임시"
+  - "임시 저장"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v2/standard-group-products/temp-detail-content"
+  - "post /v2/standard-group-products/temp-detail-content"
+  - "v2"
+  - "standard-group-products"
+  - "standard-group-product"
+  - "temp-detail-content"
+  - "v2 standard-group-products temp-detail-content"
+  - "standard-group-products temp-detail-content"
+  - "save-detail-info-product"
+  - "save"
+  - "detail"
+  - "info"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/save-detail-info-product
 ---
 

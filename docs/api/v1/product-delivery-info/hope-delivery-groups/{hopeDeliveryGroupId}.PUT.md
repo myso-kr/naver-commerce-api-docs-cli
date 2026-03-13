@@ -10,8 +10,37 @@ category: 기타
 tags:
   - put
   - reference
+keywords:
+  - "희망일배송 그룹 수정"
+  - "희망일배송 그룹"
+  - "그룹 수정"
+  - "기타"
+  - "reference"
+  - "put"
+  - "guide"
+  - "/v1/product-delivery-info/hope-delivery-groups/{hopedeliverygroupid}"
+  - "put /v1/product-delivery-info/hope-delivery-groups/{hopedeliverygroupid}"
+  - "v1"
+  - "product-delivery-info"
+  - "hope-delivery-groups"
+  - "hope-delivery-group"
+  - "hopedeliverygroupid"
+  - "v1 product-delivery-info hope-delivery-groups hopedeliverygroupid"
+  - "hope-delivery-groups hopedeliverygroupid"
+  - "product-delivery-info hope-delivery-groups hopedeliverygroupid"
+  - "update-hope-delivery-group-product"
+  - "update"
+  - "hope"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "group"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-hope-delivery-group-product
 ---
 

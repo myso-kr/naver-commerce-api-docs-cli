@@ -10,8 +10,33 @@ category: 상품
 tags:
   - product
   - put
+keywords:
+  - "v2 채널 상품 수정"
+  - "v2 채널"
+  - "채널 상품"
+  - "상품 수정"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "put"
+  - "/v2/products/channel-products/{channelproductno}"
+  - "put /v2/products/channel-products/{channelproductno}"
+  - "v2"
+  - "channel-products"
+  - "channel-product"
+  - "channelproductno"
+  - "v2 products channel-products channelproductno"
+  - "channel-products channelproductno"
+  - "products channel-products channelproductno"
+  - "update-channel-product-product"
+  - "update"
+  - "channel"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-channel-product-product
 ---
 

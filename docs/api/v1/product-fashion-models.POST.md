@@ -10,8 +10,28 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "패션모델 저장"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v1/product-fashion-models"
+  - "post /v1/product-fashion-models"
+  - "v1"
+  - "product-fashion-models"
+  - "product-fashion-model"
+  - "v1 product-fashion-models"
+  - "save-fashion-model-product"
+  - "save"
+  - "fashion"
+  - "model"
+  - "모델"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/save-fashion-model-product
 ---
 

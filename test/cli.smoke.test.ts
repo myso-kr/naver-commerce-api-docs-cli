@@ -136,6 +136,127 @@ describe("CLI smoke", () => {
     expect(guide?.audience).toBe("agent");
   });
 
+  it("matches ask queries against frontmatter keywords", async () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-keywords-");
+    const docsRoot = path.join(tmpRoot, "docs");
+    const apiRoot = path.join(docsRoot, "api", "v1");
+    fs.mkdirSync(apiRoot, { recursive: true });
+    fs.writeFileSync(
+      path.join(apiRoot, "custom.POST.md"),
+      [
+        "---",
+        'doc-id: "custom-keyword-post"',
+        'title: "임시 인증 문서"',
+        'description: "키워드 인덱스 테스트용 문서"',
+        "type: api-endpoint",
+        "method: POST",
+        "path: /v1/custom-keyword",
+        "base-url: https://api.commerce.naver.com/external",
+        "category: 인증",
+        "tags:",
+        "  - auth",
+        "keywords:",
+        '  - "smartstore"',
+        '  - "seller credentials"',
+        '  - "client_credentials"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/custom-keyword",
+        "---",
+        "",
+        "# 임시 인증 문서",
+        "",
+        "본문에는 해당 영어 키워드를 넣지 않습니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    const result = await runCli(["ask", "--dst", docsRoot, "seller", "credentials"], { cwd: tmpRoot });
+    expect(result.status).toBe(0);
+
+    const events = parseJsonLines(result.stdout);
+    const firstMatch = events.find((event) => event.event === "match");
+    expect(firstMatch?.file).toBe("api/v1/custom.POST.md");
+    expect((firstMatch?.keywords as string[]) ?? []).toContain("seller credentials");
+  });
+
+  it("propagates category index matches to linked api docs", async () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-relations-");
+    const docsRoot = path.join(tmpRoot, "docs");
+    const apiRoot = path.join(docsRoot, "api", "v1");
+    const categoryRoot = path.join(docsRoot, "category");
+    fs.mkdirSync(apiRoot, { recursive: true });
+    fs.mkdirSync(categoryRoot, { recursive: true });
+
+    fs.writeFileSync(
+      path.join(apiRoot, "token.POST.md"),
+      [
+        "---",
+        'doc-id: "custom-token-post"',
+        'title: "인증 토큰 발급 요청"',
+        'description: "oauth token endpoint"',
+        "type: api-endpoint",
+        "method: POST",
+        "path: /v1/oauth2/token",
+        "base-url: https://api.commerce.naver.com/external",
+        "category: 인증",
+        "tags:",
+        "  - auth",
+        "keywords:",
+        '  - "oauth2"',
+        '  - "token"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/token",
+        "---",
+        "",
+        "# 인증 토큰 발급 요청",
+        "",
+        "기본 토큰 발급 API입니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    fs.writeFileSync(
+      path.join(categoryRoot, "merchant-auth.md"),
+      [
+        "---",
+        'doc-id: "merchant-auth-category"',
+        'title: "판매자 온보딩 인증"',
+        'description: "merchant onboarding auth docs"',
+        "type: category-index",
+        "category: 인증",
+        "tags:",
+        "  - category",
+        "keywords:",
+        '  - "merchant onboarding"',
+        '  - "seller onboarding"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/merchant-auth",
+        "---",
+        "",
+        "# 판매자 온보딩 인증",
+        "",
+        "## 관련 문서",
+        "",
+        "| 문서 | 설명 |",
+        "|------|------|",
+        "| [인증 토큰 발급 요청](../api/v1/token.POST.md) | merchant onboarding token flow |",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    const result = await runCli(["ask", "--dst", docsRoot, "merchant", "onboarding"], { cwd: tmpRoot });
+    expect(result.status).toBe(0);
+
+    const events = parseJsonLines(result.stdout);
+    const matchedFiles = events
+      .filter((event) => event.event === "match")
+      .map((event) => String(event.file));
+    expect(matchedFiles).toContain("api/v1/token.POST.md");
+  });
+
   it("prioritizes the product creation endpoint for product creation questions", async () => {
     const result = await runCli([
       "ask",
@@ -341,6 +462,51 @@ describe("CLI smoke", () => {
     expect(guide?.audience).toBe("agent");
   });
 
+  it("matches api --query against frontmatter keywords", async () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-api-keywords-");
+    const docsRoot = path.join(tmpRoot, "docs");
+    const apiRoot = path.join(docsRoot, "api", "v1");
+    fs.mkdirSync(apiRoot, { recursive: true });
+    fs.writeFileSync(
+      path.join(apiRoot, "custom.POST.md"),
+      [
+        "---",
+        'doc-id: "custom-query-post"',
+        'title: "임시 조회 문서"',
+        'description: "frontmatter query test"',
+        "type: api-endpoint",
+        "method: POST",
+        "path: /v1/custom-query",
+        "base-url: https://api.commerce.naver.com/external",
+        "category: 상품",
+        "tags:",
+        "  - product",
+        "keywords:",
+        '  - "originproduct lookup"',
+        '  - "channel product"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/custom-query",
+        "---",
+        "",
+        "# 임시 조회 문서",
+        "",
+        "본문에는 lookup 표현을 넣지 않습니다.",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    const result = await runCli(["api", "--dst", docsRoot, "--query", "originproduct lookup"], {
+      cwd: tmpRoot,
+    });
+    expect(result.status).toBe(0);
+
+    const events = parseJsonLines(result.stdout);
+    const firstMatch = events.find((event) => event.event === "match");
+    expect(firstMatch?.file).toBe("api/v1/custom.POST.md");
+    expect((firstMatch?.keywords as string[]) ?? []).toContain("originproduct lookup");
+  });
+
   it("supports docs api as a grouped alias", async () => {
     const result = await runCli(["docs", "api", "--path", "/v2/products", "--method", "POST"]);
     expect(result.status).toBe(0);
@@ -350,6 +516,77 @@ describe("CLI smoke", () => {
 
     expect(match?.doc_id).toBe("v2-products-post");
     expect(match?.path).toBe("/v2/products");
+  });
+
+  it("returns the generated sitemap for structure queries", async () => {
+    const tmpRoot = makeTempDir("naver-commerce-api-docs-structure-");
+    const docsRoot = path.join(tmpRoot, "docs");
+    fs.mkdirSync(path.join(docsRoot, "guide"), { recursive: true });
+    fs.mkdirSync(path.join(docsRoot, "schema"), { recursive: true });
+
+    fs.writeFileSync(
+      path.join(docsRoot, "guide", "sitemap.md"),
+      [
+        "---",
+        'doc-id: "guide-sitemap"',
+        'title: "커머스API 사이트맵"',
+        'description: "문서 구조와 API 트리를 탐색하는 관계 인덱스"',
+        "type: guide",
+        "category: 기타",
+        "tags:",
+        "  - reference",
+        "  - sitemap",
+        "  - tree",
+        "keywords:",
+        '  - "사이트맵"',
+        '  - "문서 구조"',
+        '  - "api tree"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/sitemap",
+        "---",
+        "",
+        "# 커머스API 사이트맵",
+        "",
+        "## API 경로 트리",
+        "",
+        "- v1",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    fs.writeFileSync(
+      path.join(docsRoot, "schema", "sample.md"),
+      [
+        "---",
+        'doc-id: "schema-sample"',
+        'title: "주문 구조체 샘플"',
+        'description: "구조체 예시"',
+        "type: schema",
+        "category: 주문",
+        "tags:",
+        "  - schema",
+        "keywords:",
+        '  - "구조체"',
+        "status: stable",
+        'updated: "2026-03-13"',
+        "source: https://example.test/schema",
+        "---",
+        "",
+        "# 주문 구조체 샘플",
+      ].join("\n"),
+      "utf-8",
+    );
+
+    const result = await runCli(
+      ["ask", "--dst", docsRoot, "--format", "compact", "--limit", "1", "사이트맵", "구조"],
+      { cwd: tmpRoot },
+    );
+    expect(result.status).toBe(0);
+
+    const events = parseJsonLines(result.stdout);
+    const firstMatch = events.find((event) => event.event === "match");
+    expect(firstMatch?.file).toBe("guide/sitemap.md");
   });
 
   it("returns multiple matches without body by default", async () => {

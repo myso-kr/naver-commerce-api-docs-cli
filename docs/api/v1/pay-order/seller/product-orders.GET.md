@@ -10,8 +10,45 @@ category: 주문
 tags:
   - get
   - order
+keywords:
+  - "조건형 상품 주문 상세 내역 조회"
+  - "조건형 상품"
+  - "상품 주문"
+  - "주문 상세"
+  - "상세 내역"
+  - "내역 조회"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "get"
+  - "/v1/pay-order/seller/product-orders"
+  - "get /v1/pay-order/seller/product-orders"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "v1 pay-order seller product-orders"
+  - "seller product-orders"
+  - "pay-order seller product-orders"
+  - "seller-get-product-orders-with-conditions-pay-order-seller"
+  - "product"
+  - "products"
+  - "상품"
+  - "with"
+  - "conditions"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-get-product-orders-with-conditions-pay-order-seller
 ---
 

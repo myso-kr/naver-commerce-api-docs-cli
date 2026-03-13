@@ -10,8 +10,38 @@ category: 문의
 tags:
   - inquiry
   - put
+keywords:
+  - "상품 문의 답변 등록/수정"
+  - "상품 문의 답변 등록 수정"
+  - "상품 문의"
+  - "문의 답변"
+  - "답변 등록"
+  - "등록 수정"
+  - "문의"
+  - "inquiry"
+  - "qna"
+  - "question"
+  - "answer"
+  - "답변"
+  - "put"
+  - "/v1/contents/qnas/{questionid}"
+  - "put /v1/contents/qnas/{questionid}"
+  - "v1"
+  - "contents"
+  - "content"
+  - "콘텐츠"
+  - "notice"
+  - "qnas"
+  - "questionid"
+  - "v1 contents qnas questionid"
+  - "qnas questionid"
+  - "contents qnas questionid"
+  - "create-or-update-answer-contents"
+  - "create"
+  - "or"
+  - "update"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/create-or-update-answer-contents
 ---
 

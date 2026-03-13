@@ -10,8 +10,44 @@ category: 주문
 tags:
   - get
   - order
+keywords:
+  - "변경 상품 주문 내역 조회"
+  - "변경 상품"
+  - "상품 주문"
+  - "주문 내역"
+  - "내역 조회"
+  - "주문"
+  - "order"
+  - "orders"
+  - "product-order"
+  - "발주"
+  - "발송"
+  - "교환"
+  - "반품"
+  - "취소"
+  - "get"
+  - "/v1/pay-order/seller/product-orders/last-changed-statuses"
+  - "get /v1/pay-order/seller/product-orders/last-changed-statuses"
+  - "v1"
+  - "pay-order"
+  - "seller"
+  - "판매자"
+  - "merchant"
+  - "smartstore"
+  - "스마트스토어"
+  - "product-orders"
+  - "last-changed-statuses"
+  - "last-changed-statuse"
+  - "v1 pay-order seller product-orders last-changed-statuses"
+  - "product-orders last-changed-statuses"
+  - "pay-order seller product-orders last-changed-statuses"
+  - "seller-get-last-changed-status-pay-order-seller"
+  - "last"
+  - "changed"
+  - "status"
+  - "pay"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/seller-get-last-changed-status-pay-order-seller
 ---
 

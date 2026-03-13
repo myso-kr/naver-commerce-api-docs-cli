@@ -10,8 +10,32 @@ category: 상품
 tags:
   - delete
   - product
+keywords:
+  - "v2 채널 상품 삭제"
+  - "v2 채널"
+  - "채널 상품"
+  - "상품 삭제"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "delete"
+  - "/v2/products/channel-products/{channelproductno}"
+  - "delete /v2/products/channel-products/{channelproductno}"
+  - "v2"
+  - "channel-products"
+  - "channel-product"
+  - "channelproductno"
+  - "v2 products channel-products channelproductno"
+  - "channel-products channelproductno"
+  - "products channel-products channelproductno"
+  - "delete-channel-product-product"
+  - "channel"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/delete-channel-product-product
 ---
 

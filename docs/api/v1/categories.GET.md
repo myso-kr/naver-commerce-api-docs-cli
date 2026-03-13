@@ -10,8 +10,29 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "전체 카테고리 조회"
+  - "전체 카테고리"
+  - "카테고리 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/categories"
+  - "get /v1/categories"
+  - "v1"
+  - "categories"
+  - "categorie"
+  - "카테고리"
+  - "category"
+  - "v1 categories"
+  - "get-category-list-product"
+  - "list"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-category-list-product
 ---
 

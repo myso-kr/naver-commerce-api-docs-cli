@@ -10,8 +10,38 @@ category: 기타
 tags:
   - post
   - reference
+keywords:
+  - "고객 문의 답변 등록"
+  - "고객 문의"
+  - "문의 답변"
+  - "답변 등록"
+  - "기타"
+  - "reference"
+  - "post"
+  - "guide"
+  - "/v1/pay-merchant/inquiries/{inquiryno}/answer"
+  - "post /v1/pay-merchant/inquiries/{inquiryno}/answer"
+  - "v1"
+  - "pay-merchant"
+  - "inquiries"
+  - "inquirie"
+  - "문의"
+  - "inquiry"
+  - "question"
+  - "answer"
+  - "답변"
+  - "inquiryno"
+  - "v1 pay-merchant inquiries inquiryno answer"
+  - "inquiryno answer"
+  - "pay-merchant inquiries inquiryno answer"
+  - "insert-inquiry-answer-pay-merchant"
+  - "insert"
+  - "pay"
+  - "merchant"
+  - "판매자"
+  - "seller"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/insert-inquiry-answer-pay-merchant
 ---
 

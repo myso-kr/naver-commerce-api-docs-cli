@@ -10,8 +10,32 @@ category: 상품
 tags:
   - get
   - product
+keywords:
+  - "v2 원상품 조회"
+  - "v2 원상품"
+  - "원상품 조회"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "get"
+  - "/v2/products/origin-products/{originproductno}"
+  - "get /v2/products/origin-products/{originproductno}"
+  - "v2"
+  - "origin-products"
+  - "origin-product"
+  - "originproductno"
+  - "v2 products origin-products originproductno"
+  - "origin-products originproductno"
+  - "products origin-products originproductno"
+  - "read-origin-product-product"
+  - "read"
+  - "origin"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/read-origin-product-product
 ---
 

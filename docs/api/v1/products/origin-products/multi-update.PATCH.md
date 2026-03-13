@@ -10,8 +10,32 @@ category: 상품
 tags:
   - patch
   - product
+keywords:
+  - "멀티 상품 변경"
+  - "멀티 상품"
+  - "상품 변경"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "patch"
+  - "/v1/products/origin-products/multi-update"
+  - "patch /v1/products/origin-products/multi-update"
+  - "v1"
+  - "origin-products"
+  - "origin-product"
+  - "multi-update"
+  - "v1 products origin-products multi-update"
+  - "origin-products multi-update"
+  - "products origin-products multi-update"
+  - "update-multi-products-product"
+  - "update"
+  - "multi"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/update-multi-products-product
 ---
 

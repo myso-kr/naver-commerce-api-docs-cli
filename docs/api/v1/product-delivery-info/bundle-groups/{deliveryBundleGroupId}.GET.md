@@ -10,8 +10,37 @@ category: 기타
 tags:
   - get
   - reference
+keywords:
+  - "묶음배송 그룹 단건 조회"
+  - "묶음배송 그룹"
+  - "그룹 단건"
+  - "단건 조회"
+  - "기타"
+  - "reference"
+  - "get"
+  - "guide"
+  - "/v1/product-delivery-info/bundle-groups/{deliverybundlegroupid}"
+  - "get /v1/product-delivery-info/bundle-groups/{deliverybundlegroupid}"
+  - "v1"
+  - "product-delivery-info"
+  - "bundle-groups"
+  - "bundle-group"
+  - "deliverybundlegroupid"
+  - "v1 product-delivery-info bundle-groups deliverybundlegroupid"
+  - "bundle-groups deliverybundlegroupid"
+  - "product-delivery-info bundle-groups deliverybundlegroupid"
+  - "get-delivery-bundle-group-product"
+  - "delivery"
+  - "배송"
+  - "logistics"
+  - "택배"
+  - "bundle"
+  - "group"
+  - "product"
+  - "products"
+  - "상품"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/get-delivery-bundle-group-product
 ---
 

@@ -7,8 +7,23 @@ category: 상품
 tags:
   - category
   - product
+keywords:
+  - "sku"
+  - "상품"
+  - "product"
+  - "products"
+  - "originproduct"
+  - "channelproduct"
+  - "원상품"
+  - "채널상품"
+  - "category"
+  - "카테고리"
+  - "index"
+  - "재고"
+  - "물류"
+  - "logistics"
 status: stable
-updated: "2026-03-12"
+updated: "2026-03-13"
 source: https://apicenter.commerce.naver.com/docs/commerce-api/current/sku
 ---
 
